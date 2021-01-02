@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 class Signup extends Component {
+
   constructor(props) {
     super(props);
     this.state = { 
@@ -13,6 +14,7 @@ class Signup extends Component {
       errors: ''
     };
   }
+  
 handleChange = (event) => {
     const {name, value} = event.target
     this.setState({
@@ -30,32 +32,18 @@ handleSubmit = (event) => {
       address: address,
       phone_number: phone_number
     }
-axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-    .then(response => {
-      if (response.data.status === 'created') {
+    fetch('http://localhost:3001/api/v1/users', {user})
+    .then(response => { 
         this.props.handleLogin(response.data)
         this.redirect()
-      } else {
-        this.setState({
-          errors: response.data.errors
-        })
-      }
     })
-    .catch(error => console.log('api errors:', error))
+    // .catch(error => console.log('api errors:', error))
   };
-redirect = () => {
+
+  redirect = () => {
     this.props.history.push('/')
   }
-// handleErrors = () => {
-//     return (
-//       <div>
-//         <ul>{this.state.errors.map((error) => {
-//           return key={error}>{error}</li>
-//         })}
-//         </ul> 
-//       </div>
-//     )
-//   }
+
 render() {
     const {first_name, last_name, email, password, address, phone_number} = this.state
 return (
