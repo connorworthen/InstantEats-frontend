@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom'
-import Home from './components/Home'
+import {Switch, Route, Link, BrowserRouter as Router} from 'react-router-dom'
 import Login from './components/registrations/Login'
 import Signup from './components/registrations/Signup'
 
@@ -16,10 +15,20 @@ class App extends Component {
 
 render() {
     return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </nav>
+
     <Switch>
-      <Route path="/">
-        <Home />
-      </Route>
       <Route path="/signup">
         <Signup />
       </Route>
@@ -27,8 +36,8 @@ render() {
         <Login />
       </Route>
     </Switch>
-  //     </div>
-  // </Router>
+      </div>
+  </Router>
       );
   }
 }
