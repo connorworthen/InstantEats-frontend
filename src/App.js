@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
-// import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard';
 
 export default class App extends Component {
   constructor() {
@@ -24,7 +24,12 @@ export default class App extends Component {
               <Home {...props} loggedInStatus={this.state.loggedInStatus} />
             )}   
             />
-            {/* <Route exact path={"/dashboard"} component={Dashboard} /> */}
+            <Route 
+            exact path={"/dashboard"} 
+            render={props => (
+              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
+            )}
+            />
           </Switch>
         </BrowserRouter>
       </div>
