@@ -12,6 +12,8 @@ class Signup extends Component {
       address: '',
       phone_number: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = (event) => {
@@ -21,7 +23,7 @@ class Signup extends Component {
     })
   };
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault()
     const {first_name, last_name, email, password, address, phone_number} = this.state
     let user = {
@@ -32,12 +34,15 @@ class Signup extends Component {
       address: address,
       phone_number: phone_number
     }
-    fetch('http://localhost:3001/api/v1/users', {user})
-    .then(response => { 
+    return fetch('http://localhost:3001/api/v1/users', {
+      method: "POST",
+      body: user
+    })
+    .then(response => {
+
         this.props.handleLogin(response.data)
         this.redirect()
     })
-    // .catch(error => console.log('api errors:', error))
   };
 
   redirect = () => {
@@ -45,8 +50,7 @@ class Signup extends Component {
   }
 
 render() {
-    const {first_name, last_name, email, password, address, phone_number} = this.state
-return (
+  return (
       <div>
         <h1>Sign Up</h1>
       <form onSubmit={this.handleSubmit}>
@@ -54,43 +58,49 @@ return (
             placeholder="first_name"
             type="text"
             name="first_name"
-            value={first_name}
+            value={this.state.first_name}
             onChange={this.handleChange}
+            required
           />
           <input
             placeholder="last_name"
             type="text"
             name="last_name"
-            value={last_name}
+            value={this.state.last_name}
             onChange={this.handleChange}
+            required
           />
           <input 
             placeholder="email"
             type="email"
             name="email"
-            value={email}
+            value={this.state.email}
             onChange={this.handleChange}
+            required
           />
           <input
             placeholder="password"
             type="password"
             name="password"
-            value={password}
+            value={this.state.password}
             onChange={this.handleChange}
+            required
           />
           <input
             placeholder="address"
             type="text"
             name="address"
-            value={address}
+            value={this.state.address}
             onChange={this.handleChange} 
+            required
           />
           <input 
             placeholder="phone_number"
             type="phone_number"
             name="phone_number"
-            value={phone_number}
+            value={this.state.phone_number}
             onChange={this.handleChange}
+            required
           />
 
 
@@ -98,12 +108,7 @@ return (
             Sign Up
           </button>
 
-        </form>
-        <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-        </div>
+        </form>  
       </div>
     );
   }
