@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 
@@ -12,6 +13,20 @@ export default class App extends Component {
       user: {}
     }
     this.handleLogin = this.handleLogin.bind(this)
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus()
+  }
+
+  checkLoginStatus() {
+    axios.get("http://localhost:3000/api/v1/logged_in", { withCredentials: true })
+    .then(response => {
+      console.log("logged in?", response)
+    })
+    .catch(error => {
+      console.log("logged_in? error", error)
+    })
   }
 
   handleLogin(data) {
