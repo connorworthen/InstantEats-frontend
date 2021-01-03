@@ -31,9 +31,9 @@ export default class Login extends Component {
     { withCredentials: true }
     ).then(response => {
       console.log("logged in", response)
-      // if (response.data.status === 'created') {
-      //   this.props.handleSignup(response.data);
-      // }
+      if (response.data.logged_in) {
+        this.props.handleSignup(response.data);
+      }
     })
     .catch(error => {
       console.log("login error", error)

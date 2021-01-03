@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Login from './registrations/Login';
 import Signup from './registrations/Signup';
 
 export default class Home extends Component {
@@ -19,6 +20,7 @@ export default class Home extends Component {
         <h1>Home</h1>
         <h1>Status: {this.props.loggedInStatus}</h1>
         <Signup  handleSignup={this.handleSignup} />
+        <Login handleSignup={this.handleSignup} />
       </div>
     );
   }
