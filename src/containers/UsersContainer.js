@@ -7,7 +7,7 @@ import UserInput from '../components/UserInput'
 class UsersContainer extends React.Component {
 
   componentDidMount() {
-    // this.props.fetchUsers()
+    this.props.fetchUsers()
   }
   render() {
     return (
