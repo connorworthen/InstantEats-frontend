@@ -22,7 +22,7 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     const { email, password} = this.state;
-    axios.post("http://localhost:3000/api/v1/sessions", {
+    axios.post("http://localhost:3001/api/v1/sessions", {
       user: {
         email: email,
         password: password
@@ -34,6 +34,9 @@ export default class Login extends Component {
       if (response.data.logged_in) {
         this.props.handleSignup(response.data);
       }
+      // let user_json = JSON.parse(response.user) 
+      //   localStorage.setItem("token", response.jwt)
+      //   dispatch(loginUser(user_json))
     })
     .catch(error => {
       console.log("login error", error)

@@ -26,7 +26,7 @@ export default class Signup extends Component {
 
   handleSubmit(event) {
     const { first_name, last_name, email, password, address, phone_number} = this.state;
-    axios.post("http://localhost:3000/api/v1/users", {
+    axios.post("http://localhost:3001/api/v1/users", {
       user: {
         first_name: first_name,
         last_name: last_name,
@@ -41,6 +41,9 @@ export default class Signup extends Component {
       if (response.data.status === 'created') {
         this.props.handleSignup(response.data);
       }
+      // let user_json = JSON.parse(data.user)
+      //   localStorage.setItem("token", data.jwt)
+      //   dispatch(loginUser(user_json))
     })
     .catch(error => {
       console.log("response", error)
