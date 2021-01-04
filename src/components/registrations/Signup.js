@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux'
+import {createUser} from '../thunks/fetchUser'
 
-export default class Signup extends Component {
+class Signup extends Component {
 
   constructor(props) {
     super(props);
@@ -18,37 +19,23 @@ export default class Signup extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit(event) {
-    const { first_name, last_name, email, password, address, phone_number} = this.state;
-    axios.post("http://localhost:3001/api/v1/users", {
-      user: {
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
-        password: password,
-        address: address,
-        phone_number: phone_number
-      }
-    }, 
-    { withCredentials: true }
-    ).then(response => {
-      if (response.data.status === 'created') {
-        this.props.handleSignup(response.data);
-      }
-      // let user_json = JSON.parse(data.user)
-      //   localStorage.setItem("token", data.jwt)
-      //   dispatch(loginUser(user_json))
-    })
-    .catch(error => {
-      console.log("response", error)
-    })
+  handleSubmit = (event) => {
     event.preventDefault();
+    this.props.createUser(this.state)
+    this.setState({
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      address: '',
+      phone_number: ''
+    })
   }
 
 render() {
@@ -112,3 +99,11 @@ render() {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createUser: (userInfo) => dispatch(createUser(userInfo))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)
