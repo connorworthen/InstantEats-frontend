@@ -1,49 +1,24 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import axios from 'axios';
-import Home from './components/Home';
-import Dashboard from './components/Dashboard';
+import UserContainer from './containers/userContainer.js'
+import {connect} from 'react-redux'
+import {fetchLoggedInUser} from './fetchRequestss/fetchUser'
+import {logOutUser} from './actions/userAction'
 
-export default class App extends Component {
-  constructor() {
-    super();
+class App extends React.Component {
 
-    this.state = {
-      loggedInStatus: 'NOT_LOGGED_IN',
-      user: {}
-    }
-    this.handleLogin = this.handleLogin.bind(this)
+  componentDidMount(){
+    this.fetchEverything()   
   }
 
-  componentDidMount() {
-    this.checkLoginStatus()
+  fetchEverything = () => { 
+    this.props.fetchLoggedInUser()
   }
 
-  checkLoginStatus() {
-    axios.get("http://localhost:3001/api/v1/logged_in", { withCredentials: true })
-    .then(response => {
-      if (response.data.logged_in && this.state.loggedInStatus === 'NOT_LOGGED_IN') {
-        this.setState({
-          loggedInStatus: 'LOGGED_IN',
-          user: response.data.user
-        })
-      } else if (!response.data.logged_in & this.state.loggedInStatus === 'LOGGED_IN') {
-        this.setState({
-          loggedInStatus: 'NOT_LOGGED_IN',
-          user: {}
-        })
-      }
-    })
-    .catch(error => {
-      console.log("logged_in? error", error)
-    })
-  }
-
-  handleLogin(data) {
-    this.setState({
-      loggedInStatus: 'LOGGED_IN',
-      user: data.user
-    })
+  logOut = ()=>{
+    localStorage.removeItem("token")
+    this.props.logOutUser()
+    alert("Succefully log out!")
   }
 
   render() {
@@ -51,21 +26,27 @@ export default class App extends Component {
       <div className="app">
         <BrowserRouter>
           <Switch>
-            <Route
-            exact path={"/"}
-            render={props => (
-              <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
-            )}   
-            />
-            <Route 
-            exact path={"/dashboard"} 
-            render={props => (
-              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
-            )}
-            />
+            <Route exact path="/login" component={UserContainer} />
+            <Route exact path="/signup" render={props=><UserContainer {...props} />} />
           </Switch>
         </BrowserRouter>
       </div>
     )
   }
 }
+
+const mapStateToProps = state =>{
+  return{
+    login: state.user.login
+  }
+}
+
+
+const mapDispatchToProps = dispatch =>{
+  return{
+    fetchLoggedInUser: () => dispatch(fetchLoggedInUser()),
+    logOutUser: ()=>dispatch(logOutUser())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
