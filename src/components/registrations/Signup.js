@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {createUser} from '../thunks/fetchUser'
+import {createUser} from '../fetchRequests/fetchUser'
 
 class Signup extends Component {
 

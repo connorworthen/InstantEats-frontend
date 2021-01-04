@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react'
+import {connect} from 'react-redux';
+import {loginFetch} from '../fetchRequests/fetchUser'
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -14,34 +15,19 @@ export default class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit(event) {
-    const { email, password} = this.state;
-    axios.post("http://localhost:3001/api/v1/sessions", {
-      user: {
-        email: email,
-        password: password
-      }
-    }, 
-    { withCredentials: true }
-    ).then(response => {
-      console.log("logged in", response)
-      if (response.data.logged_in) {
-        this.props.handleSignup(response.data);
-      }
-      // let user_json = JSON.parse(response.user) 
-      //   localStorage.setItem("token", response.jwt)
-      //   dispatch(loginUser(user_json))
-    })
-    .catch(error => {
-      console.log("login error", error)
-    })
+  handleSubmit = (event) => {
     event.preventDefault();
+    this.props.loginFetch(this.state)
+    this.setState({
+      email: '',
+      password: ''
+    })
   }
 
 render() {
@@ -73,3 +59,10 @@ render() {
     );
   }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+      loginFetch: (userInfo) => dispatch(loginFetch(userInfo))
+    }
+  }
+
+export default connect(null, mapDispatchToProps)(Login)
