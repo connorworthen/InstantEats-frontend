@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchUsers} from './actions/fetchUsers';
+// import {fetchUsers} from './actions/fetchUsers';
+import UsersContainer from './containers/UsersContainer'
 
 class App extends React.Component {
 
@@ -11,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        App
+        <UsersContainer />
       </div>
     )
   }
