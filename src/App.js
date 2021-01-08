@@ -5,10 +5,6 @@ import UsersContainer from './containers/UsersContainer'
 
 class App extends React.Component {
 
-  componentDidMount() {
-    
-  }
-
   render() {
     return (
       <div className="app">

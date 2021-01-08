@@ -13,7 +13,7 @@ class UsersContainer extends React.Component {
     return (
       <div>
         <UserInput/>
-        <Users/>
+        <Users users={this.props.users} />
       </div>
     )
   }
