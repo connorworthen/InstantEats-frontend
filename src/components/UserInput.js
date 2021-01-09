@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {signupUser} from '../actions/signupUser'
 
 class UserInput extends React.Component {
   
@@ -18,14 +20,15 @@ class UserInput extends React.Component {
   }
 
   handleSubmit = (event) => {
-
+    event.preventDefault()
+    this.props.signupUser(this.state)
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          
+
           <label>First Name: </label>
           <input
             type="text" 
@@ -86,4 +89,4 @@ class UserInput extends React.Component {
   }
 }
 
-export default UserInput
+export default connect(null, {signupUser})(UserInput)
