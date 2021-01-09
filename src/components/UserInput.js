@@ -5,8 +5,6 @@ import {signupUser} from '../actions/signupUser'
 class UserInput extends React.Component {
   
   state = {
-    first_name: '',
-    last_name: '',
     email: '',
     password: '',
     address: '',
@@ -28,24 +26,6 @@ class UserInput extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-
-          <label>First Name: </label>
-          <input
-            type="text" 
-            placeholder="First Name" 
-            name="first_name" value={this.state.first_name} 
-            onChange={this.handleChange}
-          /><br></br>
-
-          <label>Last Name: </label>
-          <input
-            type="text" 
-            placeholder="Last Name" 
-            name="last_name" 
-            value={this.state.last_name} 
-            onChange={this.handleChange} 
-          /><br></br>
-
           <label>Email: </label>
           <input
             type="email" 
