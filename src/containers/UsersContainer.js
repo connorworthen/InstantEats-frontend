@@ -12,7 +12,7 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <div>
-        <UserInput/>
+        <UserInput/><br></br>
         <Users users={this.props.users} />
       </div>
     )
