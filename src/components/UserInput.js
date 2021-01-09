@@ -17,10 +17,15 @@ class UserInput extends React.Component {
     })
   }
 
+  handleSubmit = (event) => {
+
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
+          
           <label>First Name: </label>
           <input
             type="text" 
