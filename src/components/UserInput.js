@@ -20,6 +20,12 @@ class UserInput extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.signupUser(this.state)
+    this.setState({
+      email: '',
+      password: '',
+      address: '',
+      phone_number: '' 
+    })
   }
 
   render() {
