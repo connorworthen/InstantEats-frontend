@@ -22,6 +22,8 @@ class UserLogin extends React.Component {
       email: '',
       password: '' 
     })
+    this.props.history.push('/')
+    
   }
 
   render() {

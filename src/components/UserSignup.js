@@ -26,6 +26,7 @@ class UserInput extends React.Component {
       address: '',
       phone_number: '' 
     })
+    this.props.history.push('/')
   }
 
   render() {
