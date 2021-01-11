@@ -1,14 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {signupUser} from '../actions/userActions'
+import {loginUser} from '../actions/userActions'
 
-class UserInput extends React.Component {
+class UserLogin extends React.Component {
   
   state = {
     email: '',
-    password: '',
-    address: '',
-    phone_number: '' 
+    password: ''
   }
 
   handleChange = (event) => {
@@ -19,12 +17,10 @@ class UserInput extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.signupUser(this.state)
+    this.props.loginUser(this.state)
     this.setState({
       email: '',
-      password: '',
-      address: '',
-      phone_number: '' 
+      password: '' 
     })
   }
 
@@ -50,29 +46,11 @@ class UserInput extends React.Component {
             onChange={this.handleChange} 
           /><br></br>
 
-          <label>Address: </label>
-          <input 
-            type="text" 
-            placeholder="Address" 
-            name="address" 
-            value={this.state.address} 
-            onChange={this.handleChange} 
-          /><br></br>
-
-          <label>Phone Number: </label>
-          <input 
-            type="text" 
-            placeholder="Phone Number" 
-            name="phone_number" 
-            value={this.state.phone_number} 
-            onChange={this.handleChange} 
-          /><br></br>
-
-          <input type="submit" />
+          <input type="submit" placeholder="Login"/>
         </form>
       </div>
     )
   }
 }
 
-export default connect(null, {signupUser})(UserInput)
+export default connect(null, {loginUser})(UserLogin)
