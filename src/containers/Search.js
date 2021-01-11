@@ -3,13 +3,27 @@ import React from 'react'
 
 class Search extends React.Component {
 
+  state = {
+    address: ''
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    // this.props.loginUser(this.state)
+    this.setState({
+      address: '' 
+    })
+    // this.props.history.push('/')
+  }
+
   render() {
     return (
-    // <div style={{ backgroundImage: "url(/hero.jpg)", 
-    // minHeight: 'calc(100vh - 60px)',
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center' }}>
     <div className="hero" >
       <div className="home-page">
         <header className="cover">
@@ -17,14 +31,14 @@ class Search extends React.Component {
             <div className="cover-content">
               <h3 className="search-title">Every Restaurant at your fingertips</h3>
             </div>
-            <form className="search-form-container" _lpchecked="1" />
+            <form className="search-form-container" _lpchecked="1" onSubmit={this.handleSubmit} />
               <div className="search-field">
               <div className="react-autosuggest__container">
-                <input type="text" className="search-input" placeholder="Enter Delivery Address" value="" />
+                <input type="text" className="search-input" placeholder="Enter Delivery Address" name="address" value={this.state.address} onChange={this.handleChange} />
               </div>
               </div>
               <div>
-                <input type="submit" className="search-submit-button" value="Find Restaurants"/>
+                <input type="submit" className="search-submit-button" value="Find Local Restaurants"/>
               </div>
             </div>
         </header>
