@@ -15,21 +15,23 @@ class UsersContainer extends React.Component {
 
   render() {
     return (
-    <nav className="Navbar">
-        <h1 className="navbar-logo">Instant Eats<i class="fas fa-utensils"></i></h1>
-        <div className="menu-icon">
+      <div>
+        <Route path='/users/new' component={UserInput} />
+        <Route exact path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} /> }/>
+        <Route exact path='/sessions/new' component={UserLogin} />
+      </div>
+    // <nav className="Navbar">
+    //     <h1 className="navbar-logo">Instant Eats<i class="fas fa-utensils"></i></h1>
+    //     <div className="menu-icon">
 
-        </div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/users/new">Signup</Link></li>
-          <li><Link to="/sessions/new">Login</Link></li>
-          {/* <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} /> }/> */}
-          <Route path='/users/new' component={UserInput} />
-          <Route exact path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} /> }/>
-          <Route exact path='/sessions/new' component={UserLogin} />
-        </ul>
-    </nav>
+    //     </div>
+    //     <ul>
+    //       <li><Link to="/">Home</Link></li>
+    //       <li><Link to="/users/new">Signup</Link></li>
+    //       <li><Link to="/sessions/new">Login</Link></li>
+          /* <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} /> }/> */
+    //     </ul>
+    // </nav>
 
     )
   }
