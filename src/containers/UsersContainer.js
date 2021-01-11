@@ -5,7 +5,7 @@ import {fetchUsers} from '../actions/userActions'
 import Users from '../components/Users'
 // import User from '../components/User'
 import UserLogin from '../components/UserLogin'
-import UserInput from '../components/UserInput'
+import UserInput from '../components/UserSignup'
 
 class UsersContainer extends React.Component {
 
