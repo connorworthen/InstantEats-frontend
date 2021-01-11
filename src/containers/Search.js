@@ -15,11 +15,12 @@ class Search extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    // console.log("here")
     // this.props.loginUser(this.state)
-    this.setState({
-      address: '' 
-    })
-    // this.props.history.push('/')
+    // this.setState({
+    //   address: '' 
+    // })
+    this.props.history.push('/restaurants')
   }
 
   render() {
@@ -31,7 +32,7 @@ class Search extends React.Component {
             <div className="cover-content">
               <h3 className="search-title">Every Restaurant at your fingertips</h3>
             </div>
-            <form className="search-form-container" _lpchecked="1" onSubmit={this.handleSubmit} />
+            <form onSubmit={this.handleSubmit} />
               <div className="search-field">
               <div className="react-autosuggest__container">
                 <input type="text" className="search-input" placeholder="Enter Delivery Address" name="address" value={this.state.address} onChange={this.handleChange} />

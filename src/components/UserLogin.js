@@ -23,7 +23,6 @@ class UserLogin extends React.Component {
       password: '' 
     })
     this.props.history.push('/')
-    
   }
 
   render() {

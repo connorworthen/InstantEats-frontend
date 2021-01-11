@@ -1,44 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Route, Link} from 'react-router-dom'
-import {fetchUsers} from '../actions/userActions'
-import Users from '../components/Users'
-// import User from '../components/User'
+import {Route} from 'react-router-dom'
+// import {fetchRestaurants} from '../actions/restaurantAction'
 import UserLogin from '../components/UserLogin'
-import UserInput from '../components/UserSignup'
+import UserSignup from '../components/UserSignup'
+// import Restaurants from '../components/Restaurants'
+// import Restaurant from '../components/Restaurant'
 
 class UsersContainer extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchUsers()
-  }
+  // componentDidMount() {
+  //   this.props.fetchUsers()
+  // }
 
   render() {
     return (
       <div>
-        <Route path='/users/new' component={UserInput} />
-        <Route exact path='/users' render={(routerProps) => <Users {...routerProps} users={this.props.users} /> }/>
+        <Route path='/users/new' component={UserSignup} />
         <Route exact path='/sessions/new' component={UserLogin} />
+        {/* <Route path='/restaurants' render={(routerProps) => <Restaurants {...routerProps} restaurants={this.props.restaurants} /> }/> */}
       </div>
-    // <nav className="Navbar">
-    //     <h1 className="navbar-logo">Instant Eats<i class="fas fa-utensils"></i></h1>
-    //     <div className="menu-icon">
-
-    //     </div>
-    //     <ul>
-    //       <li><Link to="/">Home</Link></li>
-    //       <li><Link to="/users/new">Signup</Link></li>
-    //       <li><Link to="/sessions/new">Login</Link></li>
-          /* <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} /> }/> */
-    //     </ul>
-    // </nav>
-
     )
   }
 }
-const mapToStateProps = state => {
-  return {
-    users: state.users
-  }
-}
-export default connect(mapToStateProps, {fetchUsers})(UsersContainer)
+// const mapToStateProps = state => {
+//   return {
+//     users: state.users
+//   }
+// }
+export default connect()(UsersContainer)
