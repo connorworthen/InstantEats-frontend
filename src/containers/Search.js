@@ -1,5 +1,5 @@
 import React from 'react'
-// import '../css/searchBar'
+import { Redirect } from 'react-router-dom'
 
 class Search extends React.Component {
 
@@ -13,38 +13,36 @@ class Search extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    // console.log("here")
-    // this.props.loginUser(this.state)
-    // this.setState({
-    //   address: '' 
-    // })
-    this.props.history.push('/restaurants')
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   this.props.fetchRestaurants(this.state)
+  //   this.setState({
+  //     address: '' 
+  //   })
+  //   this.props.history.push('/restaurants')
+  // }
+
+  handleRedirect = () => {
+    console.log("redirect to restaurant index based on if user signed in")
+    return <Redirect to="/users/new" />
   }
 
   render() {
     return (
-    <div className="hero" >
-      <div className="home-page">
-        <header className="cover">
-          <div className="cover-wrapper">
-            <div className="cover-content">
-              <h3 className="search-title">Every Restaurant at your fingertips</h3>
-            </div>
-            <form onSubmit={this.handleSubmit} />
-              <div className="search-field">
-              <div className="react-autosuggest__container">
-                <input type="text" className="search-input" placeholder="Enter Delivery Address" name="address" value={this.state.address} onChange={this.handleChange} />
-              </div>
-              </div>
-              <div>
-                <input type="submit" className="search-submit-button" value="Find Local Restaurants"/>
-              </div>
-            </div>
-        </header>
+      <div>
+        <h3>Enter Delivery Address</h3>
+        {/* <form onSubmit={this.handleSubmit}> */}
+        <form >
+          <input
+            type="text" 
+            placeholder="Address ex." 
+            name="address" value={this.state.address} 
+            onChange={this.handleChange} 
+          />
+
+          <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleRedirect} />
+        </form>
       </div>
-    </div>
     )
   }
 }
