@@ -35,12 +35,13 @@ class Search extends React.Component {
         <form >
           <input
             type="text" 
-            placeholder="Address ex." 
+            placeholder="Address"
             name="address" value={this.state.address} 
             onChange={this.handleChange} 
           />
 
           <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleRedirect} />
+        
         </form>
       </div>
     )

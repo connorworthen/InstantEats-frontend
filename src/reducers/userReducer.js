@@ -10,7 +10,7 @@ export default function userReducer(state = defaultState, action ) {
         loggedIn: true,
         user: {...action.payload}
       }
-    case 'LOGIN_USER':
+    case 'SET_USER':
       return {
         loggedIn: true,
         user: {...action.payload}

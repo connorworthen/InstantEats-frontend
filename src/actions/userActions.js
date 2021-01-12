@@ -1,8 +1,6 @@
-const setUser = (payload) => ({ type: "LOGIN_USER", payload})
-
 export const logUserOut = () => ({type: "LOG_OUT"})
 
-export const signupUser = (data) => {
+export const signupUser = (signupData) => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/signup', {
       headers: {
@@ -10,39 +8,50 @@ export const signupUser = (data) => {
         'Accept': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(signupData)
     })
     .then(resp => resp.json())
-    .then(user => dispatch({type: 'CREATE_USER', payload: user}), localStorage.setItem("token", data.token))
+    .then(data => dispatch(
+      {type: 'SET_USER', payload: data},
+      localStorage.setItem("token", data.token)
+    ))
   }
 }
 
-export const loginUser = (data) => {
-  return (dispatch) => {
-    fetch('http://localhost:3001/api/v1/login', {
+export const loginUser = (loginData) => {
+    return (dispatch) => {
+      fetch('http://localhost:3001/api/v1/login', {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(loginData)
     })
     .then(resp => resp.json())
-    .then(user => dispatch({type: 'LOGIN_USER', payload: user}))
+    .then(data => dispatch(
+      {type: 'SET_USER', payload: data},
+      localStorage.setItem("token", data.token)
+    ))
   }
 }
 
-export const autoLogin = () => dispatch => {
-    fetch('http://localhost:3001/api/v1/login', {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem("token")}`
-        }
+export const autoLogin = () => {
+  return (dispatch) => {
+    fetch('http://localhost:3001/api/v1/auto_login', {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      }
     })
     .then(res => res.json())
-    .then(data => {localStorage.setItem("token", data.token) 
-      dispatch(setUser(data.user))
-    })
+    .then(data => dispatch(
+      // {type: 'SET_USER', payload},
+      localStorage.setItem("token", data.token),
+      console.log("auto login")
+    ))
+  }    
+    
 }
 
