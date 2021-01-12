@@ -17,8 +17,8 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <div>
-        <Route path='/users/new' component={UserSignup} />
-        <Route exact path='/sessions/new' component={UserLogin} />
+        <Route path='/signup' component={UserSignup} />
+        <Route exact path='/login' component={UserLogin} />
         <Route path='/restaurants/:id' render={(routerProps) => <Restaurant {...routerProps} restaurants={this.props.restaurants} /> }/>
         <Route exact path='/restaurants' render={(routerProps) => <Restaurants {...routerProps} restaurants={this.props.restaurants} /> }/>
       </div>

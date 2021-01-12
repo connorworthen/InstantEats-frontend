@@ -35,8 +35,8 @@ class Navbar extends React.Component {
       </ReactBootStrap.Nav>
       <ReactBootStrap.Nav>
         {/* <ReactBootStrap.Nav.Link onClick={() => this.openModal()}>Sign in</ReactBootStrap.Nav.Link> */}
-          <ReactBootStrap.Nav.Link href="/users/new">Sign up</ReactBootStrap.Nav.Link>
-          <ReactBootStrap.Nav.Link eventKey={2} href="/sessions/new">Login</ReactBootStrap.Nav.Link>
+          <ReactBootStrap.Nav.Link href="/signup">Sign up</ReactBootStrap.Nav.Link>
+          <ReactBootStrap.Nav.Link eventKey={2} href="/login">Login</ReactBootStrap.Nav.Link>
         </ReactBootStrap.Nav>
       </ReactBootStrap.Navbar.Collapse>
     </ReactBootStrap.Navbar>

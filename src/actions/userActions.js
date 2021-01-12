@@ -1,6 +1,6 @@
 export const signupUser = (data) => {
   return (dispatch) => {
-    fetch('http://localhost:3001/api/v1/users', {
+    fetch('http://localhost:3001/api/v1/signup', {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -15,7 +15,7 @@ export const signupUser = (data) => {
 
 export const loginUser = (data) => {
   return (dispatch) => {
-    fetch('http://localhost:3001/api/v1/sessions', {
+    fetch('http://localhost:3001/api/v1/login', {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
