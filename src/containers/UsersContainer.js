@@ -4,7 +4,8 @@ import {Route} from 'react-router-dom'
 // import {fetchRestaurants} from '../actions/restaurantAction'
 import UserLogin from '../components/UserLogin'
 import UserSignup from '../components/UserSignup'
-// import Restaurants from '../components/Restaurants'
+// import Search from '../components/Search'
+import Restaurants from '../components/Restaurants'
 // import Restaurant from '../components/Restaurant'
 
 class UsersContainer extends React.Component {
@@ -18,6 +19,7 @@ class UsersContainer extends React.Component {
       <div>
         <Route path='/users/new' component={UserSignup} />
         <Route exact path='/sessions/new' component={UserLogin} />
+        <Route path='/restaurants' component={Restaurants} />
         {/* <Route path='/restaurants' render={(routerProps) => <Restaurants {...routerProps} restaurants={this.props.restaurants} /> }/> */}
       </div>
     )

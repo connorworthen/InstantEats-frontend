@@ -5,8 +5,9 @@ const Restaurants = (props) => {
 
   return (
     <div>
-      {props.restaurants.map(restaurant =>
-        <div key={restaurant.id}><Restaurant restaurant={restaurant}/></div> )}
+      {/* {props.restaurants.map(restaurant =>
+        <div key={restaurant.id}><Restaurant restaurant={restaurant}/></div> )} */}
+        hello
     </div>
   )
 }

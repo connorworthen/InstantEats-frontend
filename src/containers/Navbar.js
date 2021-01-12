@@ -3,6 +3,19 @@ import * as ReactBootStrap from 'react-bootstrap'
 
 class Navbar extends React.Component {
 
+  // openModal() {
+    // this.setState({
+    //   showModal: true
+    // });
+  // }
+
+  // closeModal() {
+  //   this.setState({
+  //     showModal: false,
+  //     error: null
+  //   });
+  // }
+
   render() {
     return (
     <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -21,6 +34,7 @@ class Navbar extends React.Component {
         </ReactBootStrap.NavDropdown>
       </ReactBootStrap.Nav>
       <ReactBootStrap.Nav>
+        {/* <ReactBootStrap.Nav.Link onClick={() => this.openModal()}>Sign in</ReactBootStrap.Nav.Link> */}
           <ReactBootStrap.Nav.Link href="/users/new">Sign up</ReactBootStrap.Nav.Link>
           <ReactBootStrap.Nav.Link eventKey={2} href="/sessions/new">Login</ReactBootStrap.Nav.Link>
         </ReactBootStrap.Nav>

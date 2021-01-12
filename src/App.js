@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import UsersContainer from './containers/UsersContainer'
 import Navbar from "./containers/Navbar";
-import Search from './containers/Search'
+import Search from './components/Search'
 
 class App extends React.Component {
 
