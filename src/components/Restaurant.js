@@ -1,10 +1,9 @@
 import React from 'react'
 
-
 const Restaurant = (props) => {
 
   console.log(props)
-
+  debugger
   let restaurant = props.restaurant[props.match.params.id - 1]
   console.log(restaurant)
   
