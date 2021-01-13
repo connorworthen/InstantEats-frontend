@@ -7,16 +7,16 @@ import Search from './components/Search'
 
 class App extends React.Component {
 
-  componentDidMount(){
-    this.props.autoLogin()
-  }
+  // componentDidMount(){
+  //   this.props.autoLogin()
+  // }
   
   render() {
     return (
       <div className="app">
         <Navbar />
         {
-        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, user</h1>
+        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, Current User</h1>
         }
         <Search />
         <UsersContainer />

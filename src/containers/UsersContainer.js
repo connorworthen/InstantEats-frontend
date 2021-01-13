@@ -10,9 +10,9 @@ import Restaurant from '../components/Restaurant'
 
 class UsersContainer extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchRestaurants()
-  }
+  // componentDidMount() {
+  //   this.props.fetchRestaurants()
+  // }
 
   render() {
     return (

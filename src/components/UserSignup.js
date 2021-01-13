@@ -8,7 +8,7 @@ class UserInput extends React.Component {
     email: '',
     password: '',
     address: '',
-    phone_number: '' 
+    phone_number: ''
   }
 
   handleChange = (event) => {

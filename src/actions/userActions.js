@@ -6,11 +6,18 @@ export const signupUser = (signupData) => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/signup', {
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify(signupData)
+      body: JSON.stringify({
+        user: {
+          email: signupData.email,
+          password: signupData.password,
+          address: signupData.address,
+          phone_number: signupData.phone_number
+        }
+      })
     })
     .then(resp => resp.json())
     .then(data => dispatch(
@@ -24,8 +31,8 @@ export const loginUser = (loginData) => {
     return (dispatch) => {
       fetch('http://localhost:3001/api/v1/login', {
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
       method: 'POST',
       body: JSON.stringify(loginData)
@@ -49,7 +56,6 @@ export const autoLogin = () => dispatch => {
     .then(resp => resp.json())
     .then(data => {
       localStorage.setItem("token", data.token)
-      console.log(data)
       dispatch(setUser(data.user))
     })
 }
