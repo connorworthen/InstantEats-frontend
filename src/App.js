@@ -10,13 +10,13 @@ class App extends React.Component {
   // componentDidMount(){
   //   this.props.autoLogin()
   // }
-  
+
   render() {
     return (
       <div className="app">
         <Navbar />
         {
-        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, Current User</h1>
+        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, {this.props.userReducer.user.email}</h1>
         }
         <Search />
         <UsersContainer />
