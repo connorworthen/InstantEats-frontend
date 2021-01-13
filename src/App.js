@@ -20,6 +20,7 @@ class App extends React.Component {
         }
         <Search />
         <UsersContainer />
+
       </div>
     )
   }

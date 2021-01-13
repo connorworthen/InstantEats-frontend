@@ -1,20 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux';
+import {logUserOut} from '../actions/userActions'
 import * as ReactBootStrap from 'react-bootstrap'
 
 class Navbar extends React.Component {
 
-  // openModal() {
-    // this.setState({
-    //   showModal: true
-    // });
-  // }
-
-  // closeModal() {
-  //   this.setState({
-  //     showModal: false,
-  //     error: null
-  //   });
-  // }
+  handleChange = () => {
+    this.props.logUserOut(this.state)
+    console.log("logged out")
+  }
 
   render() {
     return (
@@ -37,6 +31,7 @@ class Navbar extends React.Component {
         {/* <ReactBootStrap.Nav.Link onClick={() => this.openModal()}>Sign in</ReactBootStrap.Nav.Link> */}
           <ReactBootStrap.Nav.Link href="/signup">Sign up</ReactBootStrap.Nav.Link>
           <ReactBootStrap.Nav.Link eventKey={2} href="/login">Login</ReactBootStrap.Nav.Link>
+          <ReactBootStrap.Nav.Link onClick={this.handleChange}>Logout</ReactBootStrap.Nav.Link>
         </ReactBootStrap.Nav>
       </ReactBootStrap.Navbar.Collapse>
     </ReactBootStrap.Navbar>
@@ -44,4 +39,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar
+export default connect(null, {logUserOut})(Navbar)
