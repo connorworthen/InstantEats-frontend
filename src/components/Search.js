@@ -1,5 +1,6 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import {fetchRestaurants} from '../actions/restaurantAction'
+import {connect} from 'react-redux';
 
 class Search extends React.Component {
 
@@ -13,26 +14,21 @@ class Search extends React.Component {
     })
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   this.props.fetchRestaurants(this.state)
-  //   this.setState({
-  //     address: '' 
-  //   })
-  //   this.props.history.push('/restaurants')
-  // }
-
-  handleRedirect = () => {
-    console.log("redirect to restaurant index based on if user signed in")
-    return <Redirect to="/users/new" />
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.fetchRestaurants(this.state)
+    this.setState({
+      address: '' 
+    })
+    console.log("fetch restaurants")
+    // this.props.history.push('/restaurants')
   }
 
   render() {
     return (
       <div>
         <h3>Enter Delivery Address</h3>
-        {/* <form onSubmit={this.handleSubmit}> */}
-        <form >
+        <form onClick={this.handleSubmit} >
           <input
             type="text" 
             placeholder="Address"
@@ -40,7 +36,7 @@ class Search extends React.Component {
             onChange={this.handleChange} 
           />
 
-          <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleRedirect} />
+          <input type="submit" placeholder="Find Local Restaurants" />
         
         </form>
       </div>
@@ -48,4 +44,4 @@ class Search extends React.Component {
   }
 }
 
-export default Search
+export default connect(null, {fetchRestaurants})(Search)

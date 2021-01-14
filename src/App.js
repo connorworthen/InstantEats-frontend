@@ -15,20 +15,11 @@ class App extends React.Component {
     return (
       <div className="app">
         <Navbar />
-        {
-        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome {this.props.userReducer.user.user.email}</h1>
-        }
         <Search />
         <UsersContainer />
 
       </div>
     )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    userReducer: state.userReducer
   }
 }
 
@@ -38,4 +29,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
