@@ -16,7 +16,7 @@ class App extends React.Component {
       <div className="app">
         <Navbar />
         {
-        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, {this.props.userReducer}</h1>
+        !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome {this.props.userReducer.user.user.email}</h1>
         }
         <Search />
         <UsersContainer />
