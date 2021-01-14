@@ -10,9 +10,11 @@ import Restaurant from '../components/Restaurant'
 
 class UsersContainer extends React.Component {
 
-  // componentDidMount() {
-  //   this.props.fetchRestaurants()
-  // }
+  componentDidMount() {
+    this.props.fetchRestaurants()
+    // debugger
+    // props coming back undefined 
+  }
 
   render() {
     return (
@@ -30,4 +32,5 @@ const mapToStateProps = state => {
     restaurants: state.restaurants
   }
 }
+
 export default connect(mapToStateProps, {fetchRestaurants})(UsersContainer)
