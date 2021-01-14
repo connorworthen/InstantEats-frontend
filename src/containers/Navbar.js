@@ -7,7 +7,6 @@ class Navbar extends React.Component {
 
   handleChange = () => {
     this.props.logUserOut(this.state)
-    console.log("logged out")
   }
 
   render() {

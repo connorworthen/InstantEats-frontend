@@ -1,5 +1,6 @@
 import React from 'react'
 import {fetchRestaurants} from '../actions/restaurantAction'
+import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
 
 class Search extends React.Component {
@@ -14,29 +15,26 @@ class Search extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleClick = (event) => {
     event.preventDefault()
     this.props.fetchRestaurants(this.state)
-    this.setState({
-      address: '' 
-    })
-    console.log("fetch restaurants")
-    // this.props.history.push('/restaurants')
+    this.props.history.push('/restaurants')
   }
 
   render() {
     return (
       <div>
         <h3>Enter Delivery Address</h3>
-        <form onClick={this.handleSubmit} >
+        <form>
           <input
             type="text" 
             placeholder="Address"
-            name="address" value={this.state.address} 
+            name="address" 
+            value={this.state.address} 
             onChange={this.handleChange} 
           />
 
-          <input type="submit" placeholder="Find Local Restaurants" />
+          <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleClick}/>
         
         </form>
       </div>
@@ -44,4 +42,4 @@ class Search extends React.Component {
   }
 }
 
-export default connect(null, {fetchRestaurants})(Search)
+export default withRouter(connect(null, {fetchRestaurants})(Search))

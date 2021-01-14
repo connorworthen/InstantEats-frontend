@@ -8,7 +8,7 @@ const Restaurants = (props) => {
     <div> 
       {/* {props.restaurants.map(restaurant =>
         <div key={restaurant.id}><Restaurant restaurant={restaurant}/></div> )} */}
-        hello
+        Restaurant
     </div>
   )
 }
