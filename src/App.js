@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {autoLogin} from './actions/userActions'
 import UsersContainer from './containers/UsersContainer'
 import Navbar from "./containers/Navbar";
-import Search from './components/Search'
+import Search from './containers/Search'
 
 class App extends React.Component {
 
@@ -17,7 +17,6 @@ class App extends React.Component {
         <Navbar />
         <Search />
         <UsersContainer />
-
       </div>
     )
   }

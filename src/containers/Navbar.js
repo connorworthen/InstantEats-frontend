@@ -5,7 +5,7 @@ import * as ReactBootStrap from 'react-bootstrap'
 
 class Navbar extends React.Component {
 
-  handleChange = () => {
+  handleLogout = () => {
     this.props.logUserOut(this.state)
   }
 
@@ -15,7 +15,7 @@ class Navbar extends React.Component {
         <ReactBootStrap.Navbar.Brand href="/">Instant Eats</ReactBootStrap.Navbar.Brand>
         {
         !this.props.userReducer.loggedIn ? <div><ReactBootStrap.Nav.Link href="/signup">Sign up</ReactBootStrap.Nav.Link> 
-          <ReactBootStrap.Nav.Link eventKey={2} href="/login">Login</ReactBootStrap.Nav.Link></div> : <h1>Welcome {this.props.userReducer.user.user.email} <ReactBootStrap.Nav.Link onClick={this.handleChange}>Logout</ReactBootStrap.Nav.Link></h1>
+          <ReactBootStrap.Nav.Link href="/login">Login</ReactBootStrap.Nav.Link></div> : <h1>Welcome {this.props.userReducer.user.user.email} <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></h1>
         }
     </ReactBootStrap.Navbar>
     )

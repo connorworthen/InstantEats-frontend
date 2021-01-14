@@ -28,7 +28,7 @@ class UserLogin extends React.Component {
   render() {
     return (
       <div>
-        <form onClick={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label>Email: </label>
           <input
             type="email" 
