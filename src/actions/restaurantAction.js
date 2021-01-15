@@ -1,3 +1,4 @@
+
 export function fetchRestaurants() {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/restaurants')

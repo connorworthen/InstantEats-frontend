@@ -22,7 +22,7 @@ class RestaurantsContainer extends React.Component {
 }
 const mapToStateProps = state => {
   return {
-    restaurants: state.restaurants
+    restaurants: state.restaurantReducer.restaurants
   }
 }
 
