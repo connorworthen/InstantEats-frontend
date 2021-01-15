@@ -5,9 +5,10 @@ import {signupUser} from '../actions/userActions'
 class UserInput extends React.Component {
   
   state = {
+    first: '',
+    last: '',
     email: '',
     password: '',
-    address: '',
     phone_number: ''
   }
 
@@ -21,10 +22,11 @@ class UserInput extends React.Component {
     event.preventDefault()
     this.props.signupUser(this.state)
     this.setState({
+      first: '',
+      last: '',
       email: '',
       password: '',
-      address: '',
-      phone_number: '' 
+      phone_number: ''
     })
     this.props.history.push('/')
   }
@@ -33,6 +35,24 @@ class UserInput extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <label>First Name: </label>
+          <input
+            type="text" 
+            placeholder="First Name" 
+            name="first" 
+            value={this.state.first} 
+            onChange={this.handleChange} 
+          /><br></br>
+
+          <label>Last Name: </label>
+          <input
+            type="text" 
+            placeholder="Last Name" 
+            name="last" 
+            value={this.state.last} 
+            onChange={this.handleChange} 
+          /><br></br>
+
           <label>Email: </label>
           <input
             type="email" 
@@ -48,15 +68,6 @@ class UserInput extends React.Component {
             placeholder="Password" 
             name="password" 
             value={this.state.password} 
-            onChange={this.handleChange} 
-          /><br></br>
-
-          <label>Address: </label>
-          <input 
-            type="text" 
-            placeholder="Address" 
-            name="address" 
-            value={this.state.address} 
             onChange={this.handleChange} 
           /><br></br>
 

@@ -12,9 +12,10 @@ export const signupUser = (signupData) => {
       method: 'POST',
       body: JSON.stringify({
         user: {
+          first: signupData.first,
+          last: signupData.last,
           email: signupData.email,
           password: signupData.password,
-          address: signupData.address,
           phone_number: signupData.phone_number
         }
       })
