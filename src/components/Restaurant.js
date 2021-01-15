@@ -1,11 +1,10 @@
 import React from 'react'
+// import {Redirect} from 'react-router-dom'
 
 const Restaurant = (props) => {
 
-  // console.log(props)
   let restaurant = props.restaurants[props.match.params.id - 1]
-  // console.log(restaurant)
-  
+
   return (
     <div>
       <li>

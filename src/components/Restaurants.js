@@ -1,9 +1,8 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
-import Restaurant from './Restaurant'
+import {Link} from 'react-router-dom'
 
 const Restaurants = (props) => {
-  console.log(props)
+
   return (
     <div> 
       {props.restaurants.map(restaurant =>
