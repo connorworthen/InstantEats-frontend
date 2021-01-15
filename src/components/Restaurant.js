@@ -7,9 +7,14 @@ const Restaurant = (props) => {
 
   return (
     <div>
-      <li>
-        {restaurant ? restaurant.name : null } - {restaurant ? restaurant.distance : null }
-      </li>
+        <h3>{restaurant ? restaurant.name : null }</h3>
+        <li>{restaurant ? restaurant.category: null }</li>
+        <li>{restaurant ? restaurant.address : null }</li>
+        <li>{restaurant ? restaurant.phone_number: null }</li>
+        <li>{restaurant ? restaurant.hours : null }</li>
+        <li>{restaurant ? restaurant.price : null }</li>
+        <li>{restaurant ? restaurant.eta : null }</li>
+        <li>{restaurant ? restaurant.distance : null }</li>   
     </div>
   )
 }
