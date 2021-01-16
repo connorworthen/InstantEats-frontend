@@ -4,7 +4,7 @@ import {autoLogin} from './actions/userActions'
 import RestaurantsContainer from './containers/RestaurantsContainer'
 import UsersContainer from './containers/UsersContainer'
 import Navbar from "./containers/Navbar";
-import Search from './containers/Search'
+import Home from './containers/Home'
 
 class App extends React.Component {
 
@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Navbar />
-        <Search />
+        <Home />
         <UsersContainer />
         <RestaurantsContainer />
       </div>
