@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const Restaurants = (props) => {
 
@@ -12,7 +12,7 @@ const Restaurants = (props) => {
             <div className="card-image">
               <img src={restaurant.img} alt="img here"/>
               <span className="card-title">{restaurant.name}</span>
-              <span to="/" onClick={()=>{this.handleClick(restaurant.id)}}>Details</span>
+              <Link to={`/restaurants/${restaurant.id}`}>Details</Link>
           </div>
 
           <div className="card-content">
