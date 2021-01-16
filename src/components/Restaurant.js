@@ -1,4 +1,5 @@
 import React from 'react'
+import MenusContainer from '../containers/MenusContainer'
 // import {Redirect} from 'react-router-dom'
 
 const Restaurant = (props) => {
@@ -14,7 +15,9 @@ const Restaurant = (props) => {
         <li>{restaurant ? restaurant.hours : null }</li>
         <li>{restaurant ? restaurant.price : null }</li>
         <li>{restaurant ? restaurant.eta : null }</li>
-        <li>{restaurant ? restaurant.distance : null }</li>   
+        <li>{restaurant ? restaurant.distance : null }</li>  
+
+        <MenusContainer /> 
     </div>
   )
 }
