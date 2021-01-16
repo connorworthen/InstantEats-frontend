@@ -4,7 +4,9 @@ const Menus = (props) => {
 
   return (
     <div>
-      Menus
+      {props.menus && props.menus.map(menu =>
+        <li key={menu.id}>{menu.name} + {menu.description}</li>
+        )}
     </div>
   )
 }
