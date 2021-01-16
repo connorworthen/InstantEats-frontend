@@ -17,7 +17,7 @@ const Restaurant = (props) => {
         <li>{restaurant ? restaurant.eta : null }</li>
         <li>{restaurant ? restaurant.distance : null }</li>  
 
-        <MenusContainer /> 
+        <MenusContainer restaurant={restaurant}/> 
     </div>
   )
 }
