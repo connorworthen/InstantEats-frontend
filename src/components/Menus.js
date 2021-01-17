@@ -1,10 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addToCart} from '../actions/cartActions'
 
 const Menus = (props) => {
 
   function handleClick(id) {
-    console.log('The link was clicked.', (id));
-    
+    props.addToCart(id)
   }
 
   return (
@@ -20,4 +21,10 @@ const Menus = (props) => {
   )
 }
 
-export default Menus
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => {dispatch(addToCart(id))}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Menus)
