@@ -2,9 +2,9 @@ import React from 'react'
 
 const Menus = (props) => {
 
-  function handleClick(e) {
-    e.preventDefault();
-    console.log('The link was clicked.');
+  function handleClick(id) {
+    console.log('The link was clicked.', (id));
+    
   }
 
   return (
@@ -13,7 +13,7 @@ const Menus = (props) => {
         <div key={menu.id}>
             <h3><b>{menu.name} ${menu.price}</b></h3>
             <h5>{menu.description}</h5>
-            <button onClick={handleClick}>Add item to cart</button>
+            <button onClick={()=>{handleClick(menu.id)}}>Add item to cart</button>
         </div>
         )}
     </div>
