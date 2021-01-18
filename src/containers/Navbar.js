@@ -18,7 +18,7 @@ class Navbar extends React.Component {
         !this.props.userReducer.loggedIn ? <div><ReactBootStrap.Nav.Link href="/signup">Sign up</ReactBootStrap.Nav.Link> 
           <ReactBootStrap.Nav.Link href="/login">Login</ReactBootStrap.Nav.Link></div> : <h1>Welcome {this.props.userReducer.user.user.first} <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></h1>
         }
-    </ReactBootStrap.Navbar>
+      </ReactBootStrap.Navbar>
     </div>
     )
   }

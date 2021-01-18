@@ -5,9 +5,9 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 // export const ADD_SHIPPING = 'ADD_SHIPPING';
 
 export const addToCart = (id) => {
-  console.log("got to actions")
+  console.log("action hit", id)
   return {
     type: ADD_TO_CART,
-    id
+    payload: id
   }
 }
