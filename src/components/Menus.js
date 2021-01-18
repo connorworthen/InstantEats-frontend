@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addToCart} from '../actions/cartActions'
+import CartsContainer from '../containers/CartsContainer'
 
 const Menus = (props) => {
 
@@ -17,6 +18,7 @@ const Menus = (props) => {
             <button onClick={()=>{handleClick(menu.id)}}>Add item to cart</button>
         </div>
         )}
+        <CartsContainer />
     </div>
   )
 }

@@ -1,6 +1,8 @@
 const defaultState = {
-  id: [],
-  total: 0
+  cart: {
+    id: [],
+    total: 0
+  }
 }
 
 export default function cartReducer(state = defaultState, action ) {
@@ -8,11 +10,12 @@ export default function cartReducer(state = defaultState, action ) {
     case 'ADD_TO_CART':
       debugger
       return {
-        id: action.payload,
-        total: state.total + 1
+        cart: {
+          id: action.payload,
+          total: 1
+        }
       }
-    default:
-      console.log(state) 
+    default: 
       return state
   }
 }
