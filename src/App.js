@@ -5,6 +5,8 @@ import RestaurantsContainer from './containers/RestaurantsContainer'
 import UsersContainer from './containers/UsersContainer'
 import Navbar from "./containers/Navbar";
 import Home from './containers/Home'
+import {Route} from 'react-router-dom'
+import Checkout from './components/Checkout'
 
 class App extends React.Component {
 
@@ -19,6 +21,7 @@ class App extends React.Component {
         <Home />
         <UsersContainer />
         <RestaurantsContainer />
+        <Route exact path='/cart' component={Checkout} />
       </div>
     )
   }

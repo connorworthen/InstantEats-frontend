@@ -1,14 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Carts = (props) => {
 
-  console.log(props)
-  
+  // const cart = useSelector(state => state.cart.cart)
+
   return (
     <div>
-        {props.carts && props.carts.map(cart =>
-        <div key={cart.id}>
-          {cart.total}
+        {props.cart.map(item =>
+        <div key={item.id}>
+          {item.total}
         </div>)}
       </div>
   )

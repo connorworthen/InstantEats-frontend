@@ -9,7 +9,7 @@ class UsersContainer extends React.Component {
     return (
       <div>
         <Route path='/signup' component={UserSignup} />
-        <Route exact path='/login' component={UserLogin} />
+        <Route exact path='/login' component={UserLogin} />   
       </div>
     )
   }

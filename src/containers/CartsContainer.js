@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-// import Carts from '../components/Carts'
+import Carts from '../components/Carts'
 
 class CartsContainer extends React.Component {
 
@@ -8,10 +8,11 @@ class CartsContainer extends React.Component {
   render() {
     return (
       <div>
-        {this.props.cartReducer.carts.total}
-        {}
-        {/* <Carts /> */}
-        {/* {props.cartReducer.carts && props.cartReducer.carts.items.map(cart =>
+        {/* {this.props.cartReducer.carts.total}
+        {} */}
+        {/* <Carts carts={this.props.cartReducer && this.props.cartReducer.carts}/> */}
+        {/* <Carts component={Carts} /> */}
+        {/* {this.props.cartReducer && this.props.cartReducer.carts.map(cart =>
         <div key={cart.id}>
           {cart.total}
         </div>)} */}
