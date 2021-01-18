@@ -1,6 +1,7 @@
 const defaultState = {
-  cart: {
-    id: [],
+  carts: {
+    // items: [],
+    id: '',
     total: 0
   }
 }
@@ -8,9 +9,10 @@ const defaultState = {
 export default function cartReducer(state = defaultState, action ) {
   switch (action.type) {
     case 'ADD_TO_CART':
-      debugger
+      // debugger
       return {
-        cart: {
+        carts: {
+          // items: [{id: action.payload, total: 1}]
           id: action.payload,
           total: 1
         }
