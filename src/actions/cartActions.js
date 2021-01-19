@@ -4,10 +4,10 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 // export const ADD_QUANTITY = 'ADD_QUANTITY';
 // export const ADD_SHIPPING = 'ADD_SHIPPING';
 
-export const addToCart = (id) => {
+export const addToCart = (restaurant) => {
   // console.log("action hit", id)
   return {
     type: 'ADD_TO_CART',
-    payload: id
+    payload: restaurant
   }
 }

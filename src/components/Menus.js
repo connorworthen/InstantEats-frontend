@@ -5,9 +5,10 @@ import {Link} from 'react-router-dom'
 import CartsContainer from '../containers/CartsContainer'
 
 const Menus = (props) => {
-
-  function handleClick(id) {
-    props.addToCart(id)
+  console.log(props)
+  
+  function handleClick(menu) {
+    props.addToCart(menu)
   }
 
   return (
@@ -16,7 +17,7 @@ const Menus = (props) => {
         <div key={menu.id}>
             <h3><b>{menu.name} ${menu.price}</b></h3>
             <h5>{menu.description}</h5>
-            <button onClick={()=>{handleClick(menu.id)}}>Add item to cart</button>
+            <button onClick={()=>{handleClick(menu)}}>Add item to cart</button>
             <Link to='/cart'>Checkout</Link>
         </div>
         )}
@@ -27,7 +28,7 @@ const Menus = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {dispatch(addToCart(id))}
+    addToCart: (menu) => {dispatch(addToCart(menu))}
   }
 }
 

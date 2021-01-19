@@ -1,7 +1,7 @@
 export default function cartReducer(state = { cart: []}, action) {
 
-    let item;
-    let cart;
+    // let item;
+    // let cart;
 
     switch(action.type) {
 
@@ -13,18 +13,23 @@ export default function cartReducer(state = { cart: []}, action) {
             }
 
         case 'ADD_TO_CART':
-
-            cart = [...state.cart]
-
-            item = action.payload
-
-            cart.push(item)
-
+            console.log(action.payload)
             return {
-                cart: cart,
+                cart: action.payload,
                 requesting: false,
                 loaded: true
             }
+            // cart = [...state.cart]
+
+            // item = action.payload
+
+            // cart.push(item)
+
+            // return {
+            //     cart: cart,
+            //     requesting: false,
+            //     loaded: true
+            // }
         
         case "GET_CART":
             return {
@@ -36,4 +41,4 @@ export default function cartReducer(state = { cart: []}, action) {
         default:
             return state
     }
-  }
+}

@@ -7,7 +7,7 @@ const Carts = (props) => {
 
   return (
     <div>
-        {props.cart.map(item =>
+        {props.cart.item.map(item =>
         <div key={item.id}>
           {item.total}
         </div>)}

@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import { Table } from 'react-bootstrap'
 
 const ShoppingCart = (props) => {
@@ -17,13 +18,13 @@ const ShoppingCart = (props) => {
           <tbody>
             <tr>
               <td>
-                Restaurant Name
+                {props.cartReducer.cart.name}
               </td>
               <td>
-                Food Items
+                {props.cartReducer.cart.menus.name}
               </td>
               <td>
-                Total $$
+                {props.cartReducer.cart.menus.price}
               </td>  
             </tr>
           </tbody>
@@ -32,4 +33,10 @@ const ShoppingCart = (props) => {
   )
 }
 
-export default ShoppingCart
+const mapToStateProps = state => {
+  return {
+    cartReducer: state.cartReducer
+  }
+}
+
+export default connect(mapToStateProps)(ShoppingCart)
