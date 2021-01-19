@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {connect} from 'react-redux'
 import { Table } from 'react-bootstrap'
 
 const ShoppingCart = (props) => {
+
+  const cart = useSelector(state => state.cartReducer.cart)
+  // debugger
+  console.log(cart)
 
   return (
     <div>
@@ -16,17 +21,23 @@ const ShoppingCart = (props) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                {props.cartReducer.cart.restaurant.name}
-              </td>
-              <td>
-                {props.cartReducer.cart.menu.name}
-              </td>
-              <td>
-                {props.cartReducer.cart.menu.price}
-              </td>  
-            </tr>
+            
+              {cart.map(cart => {
+                // debugger
+                return (
+                  <tr>
+                    <td>
+                      {cart.restaurant.name}
+                    </td>
+                    <td>
+                      {cart.menu.name}
+                    </td>
+                    <td>
+                      {cart.menu.price}
+                    </td>
+                  </tr>
+                )
+              })}
           </tbody>
         </Table>
     </div>

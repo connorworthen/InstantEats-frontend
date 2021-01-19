@@ -2,10 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addToCart} from '../actions/cartActions'
 import {Link} from 'react-router-dom'
-import MenusContainer from '../containers/MenusContainer'
 
 const Restaurant = (props) => {
-  console.log(props)
+
   let restaurant = props.restaurants[props.match.params.id - 1]
 
   function handleClick(restaurant, menu) {
@@ -30,7 +29,6 @@ const Restaurant = (props) => {
           </div>
           )}
           <Link to='/cart'>Checkout</Link>
-        {/* <MenusContainer restaurant={restaurant}/> */}
     </div>
   )
 }
