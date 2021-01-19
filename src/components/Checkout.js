@@ -18,13 +18,13 @@ const ShoppingCart = (props) => {
           <tbody>
             <tr>
               <td>
-                {props.cartReducer.cart.name}
+                {props.cartReducer.cart.restaurant.name}
               </td>
               <td>
-                {props.cartReducer.cart.menus.name}
+                {props.cartReducer.cart.id}
               </td>
               <td>
-                {props.cartReducer.cart.menus.price}
+                {/* {props.cartReducer.cart.menus.price} */}
               </td>  
             </tr>
           </tbody>
