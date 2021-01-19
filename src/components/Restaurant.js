@@ -8,8 +8,8 @@ const Restaurant = (props) => {
   console.log(props)
   let restaurant = props.restaurants[props.match.params.id - 1]
 
-  function handleClick(restaurant, id) {
-    props.addToCart(restaurant, id)
+  function handleClick(restaurant, menu) {
+    props.addToCart(restaurant, menu)
   }
 
   return (
@@ -26,7 +26,7 @@ const Restaurant = (props) => {
           <div key={menu.id}>
             <h3><b>{menu.name} ${menu.price}</b></h3>
             <h5>{menu.description}</h5>
-            <button onClick={()=>{handleClick(restaurant, menu.id)}}>Add item to cart</button>
+            <button onClick={()=>{handleClick(restaurant, menu)}}>Add item to cart</button>
           </div>
           )}
           <Link to='/cart'>Checkout</Link>
@@ -37,7 +37,7 @@ const Restaurant = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (restaurant, id) => {dispatch(addToCart(restaurant, id))}
+    addToCart: (restaurant, menu) => {dispatch(addToCart(restaurant, menu))}
   }
 }
 

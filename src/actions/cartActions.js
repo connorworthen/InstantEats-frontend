@@ -4,9 +4,9 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 // export const ADD_QUANTITY = 'ADD_QUANTITY';
 // export const ADD_SHIPPING = 'ADD_SHIPPING';
 
-export const addToCart = (restaurant, id) => {
+export const addToCart = (restaurant, menu) => {
   return {
     type: 'ADD_TO_CART',
-    payload: {restaurant, id}
+    payload: {restaurant, menu}
   }
 }
