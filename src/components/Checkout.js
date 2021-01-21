@@ -2,10 +2,17 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {connect} from 'react-redux'
 import { Table } from 'react-bootstrap'
+import {deleteItem} from '../actions/cartActions'
 
 const ShoppingCart = (props) => {
-
+  // console.log(props)
   const cart = useSelector(state => state.cartReducer.cart)
+
+  function handleClick(restaurant, menu) {
+    console.log(restaurant, menu)
+    debugger
+    props.deleteItem(restaurant, menu)
+  }
 
   return (
     <div>
@@ -35,8 +42,7 @@ const ShoppingCart = (props) => {
                       {cart.menu.price}
                     </td>                 
                   </tr>
-
-                  <button onClick={() => console.log(cart.restaurant.id, cart.menu.id)}>X</button>
+                  <button onClick={()=>{handleClick(cart.restaurant, cart.menu)}}>X</button>
                 </div>
                 )
               })}
@@ -52,4 +58,10 @@ const mapToStateProps = state => {
   }
 }
 
-export default connect(mapToStateProps)(ShoppingCart)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteItem: (restaurant, menu) => {dispatch(deleteItem(restaurant, menu))}
+  }
+}
+
+export default connect(mapToStateProps, mapDispatchToProps)(ShoppingCart)

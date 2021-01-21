@@ -1,37 +1,23 @@
 export default function cartReducer(state = { cart: []}, action) {
 
-    let item;
     let cart;
 
     switch(action.type) {
 
-        case "START_REQUESTING_CART":
-            return {
-                cart: [],
-                requesting: true,
-                loaded: false
-            }
-
         case 'ADD_TO_CART':
-            // console.log(action.payload)
-            // return {
-            //     cart: action.payload
-            // }
-            cart = [...state.cart]
-
-            item = action.payload
-
-            cart.push(item)
+            cart = [...state.cart, action.payload]
 
             return {
                 cart: cart,
             }
         
-        case "GET_CART":
+        case "DELETE_ITEM":
+            console.log(state.cart, action.payload)
+            debugger
+            cart = [...state.cart.filters(cart => cart.id !== action.payload.id)]
+            
             return {
-                cart: action.payload.lineItems,
-                requesting: false,
-                loaded: true
+                cart: cart
             }
 
         default:
