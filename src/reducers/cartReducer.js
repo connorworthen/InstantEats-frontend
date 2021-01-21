@@ -1,14 +1,10 @@
 export default function cartReducer(state = { carts: []}, action) {
 
-    let cart;
-
     switch(action.type) {
 
         case 'ADD_TO_CART':
-            cart = [...state.carts, action.payload]
-
             return {
-                carts: cart,
+                carts: [...state.carts, action.payload]
             }
         
         case "DELETE_ITEM": 

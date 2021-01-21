@@ -25,7 +25,6 @@ const ShoppingCart = (props) => {
           <tbody>
             
               {cart.map(cart => {
-                // debugger
                 return (
                 <div>
                   <tr>
@@ -45,9 +44,8 @@ const ShoppingCart = (props) => {
                 })}
                   <td>
                     ${cart.reduce((acc, cart) => {
-                      debugger
                         return acc + parseInt(cart.menu.price)
-                        }, 0)}
+                        }, 0)}.00
                   </td>
           </tbody>
         </Table>
