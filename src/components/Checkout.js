@@ -5,12 +5,9 @@ import { Table } from 'react-bootstrap'
 import {deleteItem} from '../actions/cartActions'
 
 const ShoppingCart = (props) => {
-  // console.log(props)
   const cart = useSelector(state => state.cartReducer.cart)
 
   function handleClick(restaurant, menu) {
-    console.log(restaurant, menu)
-    debugger
     props.deleteItem(restaurant, menu)
   }
 
