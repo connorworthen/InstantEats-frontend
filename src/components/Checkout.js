@@ -40,9 +40,15 @@ const ShoppingCart = (props) => {
                     </td>                 
                   </tr>
                   <button onClick={()=>{handleClick(cart.restaurant, cart.menu)}}>X</button>
-                </div>
-                )
-              })}
+                  </div>
+                  )
+                })}
+                  <td>
+                    ${cart.reduce((acc, cart) => {
+                      debugger
+                        return acc + parseInt(cart.menu.price)
+                        }, 0)}
+                  </td>
           </tbody>
         </Table>
     </div>
