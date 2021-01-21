@@ -6,8 +6,6 @@ import { Table } from 'react-bootstrap'
 const ShoppingCart = (props) => {
 
   const cart = useSelector(state => state.cartReducer.cart)
-  // debugger
-  console.log(cart)
 
   return (
     <div>
@@ -25,6 +23,7 @@ const ShoppingCart = (props) => {
               {cart.map(cart => {
                 // debugger
                 return (
+                <div>
                   <tr>
                     <td>
                       {cart.restaurant.name}
@@ -34,8 +33,11 @@ const ShoppingCart = (props) => {
                     </td>
                     <td>
                       {cart.menu.price}
-                    </td>
+                    </td>                 
                   </tr>
+
+                  <button onClick={() => console.log(cart.restaurant.id, cart.menu.id)}>X</button>
+                </div>
                 )
               })}
           </tbody>
