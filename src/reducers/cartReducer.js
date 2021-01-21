@@ -1,27 +1,21 @@
-export default function cartReducer(state = { cart: []}, action) {
+export default function cartReducer(state = { carts: []}, action) {
 
     let cart;
 
     switch(action.type) {
 
         case 'ADD_TO_CART':
-            cart = [...state.cart, action.payload]
+            cart = [...state.carts, action.payload]
 
             return {
-                cart: cart,
+                carts: cart,
             }
         
-        case "DELETE_ITEM":
-            console.log(state.cart, action.payload)
-            // need to delete the payload & update state & state.cart holds all items collected in cart
-            debugger
-            cart = [...state.cart.filters(cart => cart.id !== action.payload.id)]
-            // cart coming back undefined fix cart
-            
+        case "DELETE_ITEM": 
+            console.log(state.carts, action.payload)
             return {
-                cart: cart
+                carts: [...state.carts.filter(cart => cart !== action.payload)]
             }
-
         default:
             return state
     }
