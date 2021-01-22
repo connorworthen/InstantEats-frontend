@@ -35,6 +35,7 @@ class UserInput extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
+        <h1>Signup Form</h1><br></br>
   <Form.Group controlId="formBasicFirst">
     <Form.Label><b>First Name:</b></Form.Label>
     <Form.Control type="text" 

@@ -29,6 +29,7 @@ class UserLogin extends React.Component {
   render() {
     return (
         <Form onSubmit={this.handleSubmit}>
+          <h1>Login Form</h1><br></br>
   <Form.Group controlId="formBasicEmail">
     <Form.Label><b>Email Address:</b></Form.Label>
     <Form.Control type="email" 
