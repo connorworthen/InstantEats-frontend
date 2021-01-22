@@ -7,8 +7,10 @@ import {deleteItem} from '../actions/cartActions'
 const ShoppingCart = (props) => {
   const cart = useSelector(state => state.cartReducer.carts)
 
-  function handleClick(restaurant, menu) {
-    props.deleteItem(restaurant, menu)
+  function handleClick(cart) {
+    // console.log(cart)
+    // debugger
+    props.deleteItem(cart)
   }
 
   return (
@@ -38,7 +40,7 @@ const ShoppingCart = (props) => {
                       {cart.menu.price}
                     </td>                 
                   </tr>
-                  <button onClick={()=>{handleClick(cart.restaurant, cart.menu)}}>X</button>
+                  <button onClick={()=>{handleClick(cart)}}>X</button>
                   </div>
                   )
                 })}
@@ -61,7 +63,7 @@ const mapToStateProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteItem: (restaurant, menu) => {dispatch(deleteItem(restaurant, menu))}
+    deleteItem: (cart) => {dispatch(deleteItem(cart))}
   }
 }
 

@@ -12,9 +12,9 @@ export const addToCart = (restaurant, menu) => {
   }
 }
 
-export const deleteItem = (restaurant, menu) => {
+export const deleteItem = (cart) => {
   return {
     type: 'DELETE_ITEM',
-    payload: {restaurant, menu}
+    payload: cart
   }
 }
