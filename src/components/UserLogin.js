@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
+import {Form, Button} from 'react-bootstrap'
 
 class UserLogin extends React.Component {
   
@@ -27,31 +28,34 @@ class UserLogin extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Email: </label>
-          <input
-            type="email" 
-            placeholder="Email" 
+        <Form onSubmit={this.handleSubmit}>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label><b>Email Address:</b></Form.Label>
+    <Form.Control type="email" 
+            placeholder="Email*" 
             name="email" 
             value={this.state.email} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange}  />
+  </Form.Group>
 
-          <label>Password: </label>
-          <input
-            type="password" 
-            placeholder="Password" 
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label><b>Password:</b></Form.Label>
+    <Form.Control type="password" 
+            placeholder="Password*" 
             name="password" 
             value={this.state.password} 
-            onChange={this.handleChange} 
-          /><br></br>
-
-          <input type="submit" placeholder="Login"/>
-        </form>
-      </div>
+            onChange={this.handleChange}  />
+  </Form.Group>
+  <Form.Text className="text-muted">
+      Note: We'll never share your data with anyone else.
+    </Form.Text>
+  <Button variant="primary" type="submit">
+    Login
+  </Button>
+</Form>
     )
   }
 }
 
 export default connect(null, {loginUser})(UserLogin)
+

@@ -8,8 +8,6 @@ const ShoppingCart = (props) => {
   const cart = useSelector(state => state.cartReducer.carts)
 
   function handleClick(cart) {
-    // console.log(cart)
-    // debugger
     props.deleteItem(cart)
   }
 

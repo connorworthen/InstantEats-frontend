@@ -8,7 +8,6 @@ export default function cartReducer(state = { carts: []}, action) {
             }
         
         case "DELETE_ITEM": 
-            debugger
             return {
                 ...state,
                 carts: state.carts.filter((cart) => cart !== action.payload)
@@ -18,6 +17,3 @@ export default function cartReducer(state = { carts: []}, action) {
             return state
     }
 }
-
-
-// carts: [...state.carts.filter((cart) => cart.id !== action.payload)]

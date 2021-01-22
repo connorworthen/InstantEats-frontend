@@ -7,6 +7,7 @@ import Navbar from "./containers/Navbar";
 import Home from './containers/Home'
 import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
+import * as ReactBootStrap from 'react-bootstrap'
 
 class App extends React.Component {
 

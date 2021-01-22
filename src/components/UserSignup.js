@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
+import {Form, Button} from 'react-bootstrap'
 
 class UserInput extends React.Component {
   
@@ -33,58 +34,66 @@ class UserInput extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>First Name: </label>
-          <input
-            type="text" 
-            placeholder="First Name" 
+      <Form onSubmit={this.handleSubmit}>
+  <Form.Group controlId="formBasicFirst">
+    <Form.Label><b>First Name:</b></Form.Label>
+    <Form.Control type="text" 
+            placeholder="First Name*" 
             name="first" 
             value={this.state.first} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange} />
+  </Form.Group>
 
-          <label>Last Name: </label>
-          <input
-            type="text" 
-            placeholder="Last Name" 
+  <Form.Group controlId="formBasicLast">
+    <Form.Label><b>Last Name:</b></Form.Label>
+    <Form.Control type="text" 
+            placeholder="Last Name*" 
             name="last" 
             value={this.state.last} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange}   />
+  </Form.Group>
 
-          <label>Email: </label>
-          <input
-            type="email" 
-            placeholder="Email" 
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label><b>Email Address:</b></Form.Label>
+    <Form.Control type="email" 
+            placeholder="Email*" 
             name="email" 
             value={this.state.email} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange}  />
+  </Form.Group>
 
-          <label>Password: </label>
-          <input
-            type="password" 
-            placeholder="Password" 
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label><b>Password:</b></Form.Label>
+    <Form.Control type="password" 
+            placeholder="Password*" 
             name="password" 
             value={this.state.password} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange}  />
+  </Form.Group>
 
-          <label>Phone Number: </label>
-          <input 
-            type="text" 
-            placeholder="Phone Number" 
+  <Form.Group controlId="formBasicPhoneNumber">
+    <Form.Label><b>Phone Number:</b></Form.Label>
+    <Form.Control type="text" 
+            placeholder="Phone Number*" 
             name="phone_number" 
             value={this.state.phone_number} 
-            onChange={this.handleChange} 
-          /><br></br>
+            onChange={this.handleChange}   />
+  </Form.Group>
 
-          <input type="submit" />
-        </form>
-      </div>
+  <Form.Group controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="I agree to Terms of Use & Privacy Statement*" />
+  </Form.Group>
+  <Form.Text className="text-muted">
+      Note: We'll never share your data with anyone else.
+    </Form.Text>
+  <Button variant="primary" type="submit">
+    Signup
+  </Button>
+</Form>
     )
   }
 }
 
 export default connect(null, {signupUser})(UserInput)
+
+
