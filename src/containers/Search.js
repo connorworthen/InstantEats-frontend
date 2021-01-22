@@ -6,8 +6,7 @@ import {connect} from 'react-redux';
 class Search extends React.Component {
 
   state = {
-    address: '',
-    display: true
+    address: ''
   }
 
   handleChange = (event) => {
@@ -20,14 +19,12 @@ class Search extends React.Component {
     event.preventDefault()
     this.props.fetchRestaurants(this.state)
     this.setState({
-      address: '',
-      display: false
+      address: ''
     })
     this.props.history.push('/restaurants')
   }
 
   render() {
-    if (this.state.display) {
       return (
       <div>
         <h3>Enter Delivery Address</h3>
@@ -45,12 +42,6 @@ class Search extends React.Component {
         </form>
       </div>
     )
-    } else {
-      return (
-      <div></div>
-      )   
-    }
-    
   }
 }
 
