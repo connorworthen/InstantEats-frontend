@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {autoLogin} from './actions/userActions'
 import RestaurantsContainer from './containers/RestaurantsContainer'
-import UsersContainer from './containers/UsersContainer'
 import Navbar from "./containers/Navbar";
-import Home from './containers/Home'
+import Search from './containers/Search'
 import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
-import * as ReactBootStrap from 'react-bootstrap'
+import UserLogin from './components/UserLogin'
+import UserSignup from './components/UserSignup'
 
 class App extends React.Component {
 
@@ -19,9 +19,10 @@ class App extends React.Component {
     return (
       <div className="app">
         <Navbar />
-        <Home />
-        <UsersContainer />
+        <Search />
         <RestaurantsContainer />
+        <Route path='/signup' component={UserSignup} />
+        <Route exact path='/login' component={UserLogin} />  
         <Route exact path='/cart' component={Checkout} />
       </div>
     )
