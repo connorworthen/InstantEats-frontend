@@ -6,7 +6,7 @@ const Restaurants = (props) => {
 
   return (
     <section className="products">
-    <div className="section-title">
+    <div className="header">
       <h1>Restaurants Near You</h1>
     </div>
     <div className="products-center">

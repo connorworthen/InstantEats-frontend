@@ -36,7 +36,7 @@
 
 .search-submit-button {
   border-radius: 6px;
-  background-color: #da3743;
+  background-color: blue;
   color: #fff;
   height: 100%;
   font-size: 16px;
@@ -138,7 +138,7 @@ body {
 
 .hero {
   min-height: calc(100vh - 60px);
-  background: url("./test3.webp") center/cover no-repeat;
+  background: url("./background.webp") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -63,19 +63,3 @@ class Search extends React.Component {
 }
 
 export default withRouter(connect(null, {fetchRestaurants})(Search))
-
-// <div>
-//         <h3>Enter Delivery Address</h3>
-//         <form>
-//           <input
-//             type="text" 
-//             placeholder="Address"
-//             name="address" 
-//             value={this.state.address} 
-//             onChange={this.handleChange} 
-//           />
-
-//           <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleClick}/>
-        
-//         </form>
-//       </div>

@@ -18,7 +18,7 @@ const ShoppingCart = (props) => {
           <thead>
             <tr>
               <th>Restaurant</th>
-              <th>Items</th>
+              {/* <th>Items</th> */}
               <th>Total</th>
             </tr>
           </thead>
@@ -35,7 +35,7 @@ const ShoppingCart = (props) => {
                       {cart.menu.name}
                     </td>
                     <td>
-                      {cart.menu.price}
+                      ${cart.menu.price}
                     </td>                 
                   </tr>
                   <button onClick={()=>{handleClick(cart)}}>X</button>

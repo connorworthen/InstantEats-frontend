@@ -1,3 +1,18 @@
+.header {
+  background-color: black;
+  color: white;
+  font-family: $work-sans-stack;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 5rem;
+  margin: 1rem;
+  text-align: center;
+
+  @media (min-width: $sm-screen-size) {
+    font-size: 3rem;
+  }
+}
+
 .products {
   padding: 4rem 0;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addToCart} from '../actions/cartActions'
 import {Link} from 'react-router-dom'
+import {ListGroup} from 'react-bootstrap'
 
 const Restaurant = (props) => {
 
@@ -13,22 +14,26 @@ const Restaurant = (props) => {
 
   return (
     <div>
-        <h3>{restaurant ? restaurant.name : null }</h3>
-        <li>{restaurant ? restaurant.category: null }</li>
-        <li>{restaurant ? restaurant.address : null }</li>
-        <li>{restaurant ? restaurant.phone_number: null }</li>
-        <li>{restaurant ? restaurant.hours : null }</li>
-        <li>{restaurant ? restaurant.price : null }</li>
-        <li>{restaurant ? restaurant.eta : null }</li>
-        <li>{restaurant ? restaurant.distance : null }</li>
+      <ListGroup>
+        <ListGroup.Item ><h1>{restaurant.name}</h1></ListGroup.Item>
+        <ListGroup.Item><b>Category:</b> {restaurant.category}</ListGroup.Item>
+        <ListGroup.Item><b>Address:</b> {restaurant.address}</ListGroup.Item>
+        <ListGroup.Item><b>Phone Number:</b>{restaurant.phone_number}</ListGroup.Item>
+        <ListGroup.Item><b>Hours:</b>{restaurant.hours}</ListGroup.Item>
+        <ListGroup.Item><b>Price:</b> {restaurant.price}</ListGroup.Item>
+        <ListGroup.Item><b>ETA:</b> {restaurant.eta}</ListGroup.Item>
+        <ListGroup.Item><b>Distance:</b> {restaurant.distance}</ListGroup.Item>
+      </ListGroup>
           {restaurant.menus.map(menu =>
           <div key={menu.id}>
+            <h1>Our Menu</h1>
             <h3><b>{menu.name} ${menu.price}</b></h3>
-            <h5>{menu.description}</h5>
-            <button onClick={()=>{handleClick(restaurant, menu)}}>Add item to cart</button>
+            <h5>{menu.description}</h5><br></br>
+            <button onClick={()=>{handleClick(restaurant, menu)}}>Add item to cart</button><br></br>
           </div>
           )}
-          <Link to='/cart'>Checkout</Link>
+          <br></br>
+          <button><Link to='/cart'>Checkout</Link></button>
     </div>
   )
 }
