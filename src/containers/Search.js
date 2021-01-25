@@ -2,6 +2,7 @@ import React from 'react'
 import {fetchRestaurants} from '../actions/restaurantAction'
 import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
+import '../index.css'
 
 class Search extends React.Component {
 
@@ -26,23 +27,55 @@ class Search extends React.Component {
 
   render() {
       return (
-      <div>
-        <h3>Enter Delivery Address</h3>
-        <form>
-          <input
-            type="text" 
-            placeholder="Address"
-            name="address" 
-            value={this.state.address} 
-            onChange={this.handleChange} 
-          />
-
-          <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleClick}/>
-        
-        </form>
+      <div className="hero">
+        <div className="home-page">
+        <header className="cover">
+          <div className="cover-wrapper">
+            <div className="cover-content">
+              <h3 className="search-title">Every Restaurant at your fingertips</h3>
+            </div>
+            <form className="search-form-container" _lpchecked="1">
+              <div className="search-field">
+                <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" className="react-autosuggest__container">
+                <input
+                autocomplete="off" 
+                aria-autocomplete="list" 
+                aria-controls="react-autowhatever-1" 
+                className="search-input" 
+                type="text" 
+                placeholder="Address"
+                name="address" 
+                value={this.state.address} 
+                onChange={this.handleChange}
+                />
+                </div>
+              </div>
+              <div>
+                <input type="submit" className="search-submit-button" placeholder="Find Local Restaurants" onClick={this.handleClick} />
+              </div>
+            </form>
+            </div>
+        </header>
       </div>
+  </div>
     )
   }
 }
 
 export default withRouter(connect(null, {fetchRestaurants})(Search))
+
+// <div>
+//         <h3>Enter Delivery Address</h3>
+//         <form>
+//           <input
+//             type="text" 
+//             placeholder="Address"
+//             name="address" 
+//             value={this.state.address} 
+//             onChange={this.handleChange} 
+//           />
+
+//           <input type="submit" placeholder="Find Local Restaurants" onClick={this.handleClick}/>
+        
+//         </form>
+//       </div>
