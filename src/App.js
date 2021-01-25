@@ -8,6 +8,7 @@ import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
 import UserLogin from './components/UserLogin'
 import UserSignup from './components/UserSignup'
+import Footer from './containers/Footer'
 
 class App extends React.Component {
 
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Route path='/signup' component={UserSignup} />
         <Route exact path='/login' component={UserLogin} />  
         <Route exact path='/cart' component={Checkout} />
+        <Footer />
       </div>
     )
   }
