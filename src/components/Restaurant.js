@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {connect} from 'react-redux'
 import {addToCart} from '../actions/cartActions'
 import {Link} from 'react-router-dom'
@@ -10,6 +10,19 @@ const Restaurant = (props) => {
 
   function handleClick(restaurant, menu) {
     props.addToCart(restaurant, menu)
+  }
+
+  const [data, setData] = useState(restaurant.menus);
+
+  const sortByPrice = () => {
+    const sorted = [...data].sort((a, b) => {
+      if (a.price < b.price) {
+        return a.price - b.price
+      } else if (a.price > b.price) {
+        return b.price - a.price
+      }   
+    });
+    setData(sorted)
   }
 
   return (
@@ -24,11 +37,12 @@ const Restaurant = (props) => {
         <ListGroup.Item><b>ETA:</b> {restaurant.eta}</ListGroup.Item>
         <ListGroup.Item><b>Distance:</b> {restaurant.distance}</ListGroup.Item>
       </ListGroup>
-          {restaurant.menus.map(menu =>
-          <div key={menu.id}>
-            <h1>Our Menu</h1>
+        <h1>Our Menu</h1> <button onClick={sortByPrice}>Sort By Price</button>
+          {data.map((menu, i)=>
+          <div key={i}>
             <h3><b>{menu.name} ${menu.price}</b></h3>
             <h5>{menu.description}</h5><br></br>
+
             <button onClick={()=>{handleClick(restaurant, menu)}}>Add item to cart</button><br></br>
           </div>
           )}

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import '../restaurants.css'
 
 const Restaurants = (props) => {
@@ -8,6 +9,13 @@ const Restaurants = (props) => {
     <section className="products">
     <div className="header">
       <h1>Restaurants Near You</h1>
+    </div>
+    <div className="select">
+      <select>
+        <option value="" disabled selected>Sort by</option>
+          <option>Alphabet - A-Z</option>
+          <option>Alphabet - Z-A</option>
+      </select>
     </div>
     <div className="products-center">
       {props.restaurants.map(restaurant =>
@@ -28,22 +36,3 @@ const Restaurants = (props) => {
 }
 
 export default Restaurants
-
-{/* <div className="container">
-      <h3 className="center">Restaurants Near You</h3>
-      <div className="box">
-        {props.restaurants.map(restaurant =>
-          <div className="card" key={restaurant.id}>
-            <div className="card-image">
-              <img src={restaurant.img} alt="img here"/>
-              <span className="card-title">{restaurant.name}</span>
-              <Link to={`/restaurants/${restaurant.id}`}>Details</Link>
-          </div>
-
-          <div className="card-content">
-            <p>{restaurant.category}</p>
-            <p><b>{restaurant.eta}</b></p>
-          </div>
-        </div>)}
-      </div>
-    </div>  */}
