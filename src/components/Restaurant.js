@@ -12,18 +12,13 @@ const Restaurant = (props) => {
     props.addToCart(restaurant, menu)
   }
 
-  const [data, setData] = useState(restaurant.menus);
+  const [data, setData] = useState(restaurant.menus)
 
   const sortByPrice = () => {
-    const sorted = [...data].sort((a, b) => {
-      if (a.price < b.price) {
-        return a.price - b.price
-      } else if (a.price > b.price) {
-        return b.price - a.price
-      }   
-    });
+    const sorted = [...data].sort((a, b) => a.price - b.price)
     setData(sorted)
   }
+
 
   return (
     <div>
