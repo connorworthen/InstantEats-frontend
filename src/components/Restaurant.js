@@ -8,11 +8,11 @@ const Restaurant = (props) => {
 
   let restaurant = props.restaurants[props.match.params.id - 1]
 
-  function handleClick(restaurant, menu) {
-    props.addToCart(restaurant, menu)
+  function handleClick(restaurant, item) {
+    props.addToCart(restaurant, item)
   }
 
-  const [data, setData] = useState(restaurant.menus)
+  const [data, setData] = useState(restaurant.items)
 
   const sortByPrice = () => {
     const sorted = [...data].sort((a, b) => a.price - b.price)
@@ -31,16 +31,15 @@ const Restaurant = (props) => {
         <ListGroup.Item><b>Price:</b> {restaurant.price}</ListGroup.Item>
         <ListGroup.Item><b>ETA:</b> {restaurant.eta}</ListGroup.Item>
         <ListGroup.Item><b>Distance:</b> {restaurant.distance}</ListGroup.Item>
-        {/* <ListGroup.Item><b>image:</b> {restaurant.image}</ListGroup.Item> */}
         
       </ListGroup>
         <h1>Our Menu</h1> <button onClick={sortByPrice}>Sort By Price</button>
-          {data.map((menu, i)=>
+          {data.map((item, i)=>
           <div key={i}>
-            <h3><b>{menu.name} ${menu.price}</b></h3>
-            <h5>{menu.description}</h5><br></br>
+            <h3><b>{item.name} ${item.price}</b></h3>
+            <h5>{item.description}</h5><br></br>
 
-            <button onClick={()=>{handleClick(restaurant, menu)}}>Add item to cart</button><br></br>
+            <button onClick={()=>{handleClick(restaurant, item)}}>Add item to cart</button><br></br>
           </div>
           )}
           <br></br>
@@ -51,7 +50,7 @@ const Restaurant = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (restaurant, menu) => {dispatch(addToCart(restaurant, menu))}
+    addToCart: (restaurant, item) => {dispatch(addToCart(restaurant, item))}
   }
 }
 

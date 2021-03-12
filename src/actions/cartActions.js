@@ -1,10 +1,10 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const DELETE_ITEM = 'DELETE_ITEM';
 
-export const addToCart = (restaurant, menu) => {
+export const addToCart = (restaurant, item) => {
   return {
     type: 'ADD_TO_CART',
-    payload: {restaurant, menu}
+    payload: {restaurant, item}
   }
 }
 

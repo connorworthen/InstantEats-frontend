@@ -32,10 +32,10 @@ const ShoppingCart = (props) => {
                       {cart.restaurant.name}
                     </td>
                     <td>
-                      {cart.menu.name}
+                      {cart.item.name}
                     </td>
                     <td>
-                      ${cart.menu.price}
+                      ${cart.item.price}
                     </td>                 
                   </tr>
                   <button onClick={()=>{handleClick(cart)}}>X</button>
@@ -44,7 +44,7 @@ const ShoppingCart = (props) => {
                 })}
                   <td>
                     ${cart.reduce((acc, cart) => {
-                        return acc + parseInt(cart.menu.price)
+                        return acc + parseInt(cart.item.price)
                         }, 0)}.00
                   </td>
           </tbody>
