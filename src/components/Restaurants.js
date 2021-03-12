@@ -21,11 +21,7 @@ const Restaurants = (props) => {
       {props.restaurants.map(restaurant =>
       <article class="product">
           <div class="img-container">
-            <img
-              src='../test1.webp'
-              alt="product"
-              class="product-img"
-            />
+            <img src={restaurant.image.url} alt="restaurant image" class="product-img" />
             </div>
             <Link to={`/restaurants/${restaurant.id}`}>Details</Link>
             <h3>{restaurant.name}</h3>

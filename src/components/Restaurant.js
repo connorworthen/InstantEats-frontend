@@ -31,6 +31,8 @@ const Restaurant = (props) => {
         <ListGroup.Item><b>Price:</b> {restaurant.price}</ListGroup.Item>
         <ListGroup.Item><b>ETA:</b> {restaurant.eta}</ListGroup.Item>
         <ListGroup.Item><b>Distance:</b> {restaurant.distance}</ListGroup.Item>
+        {/* <ListGroup.Item><b>image:</b> {restaurant.image}</ListGroup.Item> */}
+        
       </ListGroup>
         <h1>Our Menu</h1> <button onClick={sortByPrice}>Sort By Price</button>
           {data.map((menu, i)=>
