@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import {logUserOut} from '../actions/userActions'
+import {googleAuth} from '../actions/oauthActions'
 import * as ReactBootStrap from 'react-bootstrap'
 
 class Navbar extends React.Component {
@@ -15,6 +16,7 @@ class Navbar extends React.Component {
       console.log(response.profileObj)
       const id_token = response.getAuthResponse().id_token;
       console.log(id_token)
+      this.props.googleAuth(id_token)
     }
 
   render() {
@@ -36,7 +38,7 @@ class Navbar extends React.Component {
         />
         </div>
         : 
-        <div><h1>Welcome {this.props.userReducer.user.user.first}</h1> <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
+        <div><h1>Welcome </h1> <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
         }
       </ReactBootStrap.Navbar> 
     )
@@ -49,5 +51,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {logUserOut})(Navbar)
+export default connect(mapStateToProps, {logUserOut, googleAuth})(Navbar)
 
+// {this.props.userReducer.user.user.first}
