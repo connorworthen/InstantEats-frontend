@@ -15,7 +15,6 @@ class Navbar extends React.Component {
       console.log(response)
       console.log(response.profileObj)
       const id_token = response.getAuthResponse().id_token;
-      console.log(id_token)
       this.props.googleAuth(id_token)
     }
 
@@ -38,7 +37,7 @@ class Navbar extends React.Component {
         />
         </div>
         : 
-        <div><h1>Welcome </h1> <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
+        <div><h1>Welcome  </h1> <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
         }
       </ReactBootStrap.Navbar> 
     )
