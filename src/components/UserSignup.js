@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
+import GoogleLogin from 'react-google-login';
+import {googleAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
 class UserInput extends React.Component {
@@ -29,6 +31,12 @@ class UserInput extends React.Component {
       password: '',
       phone_number: ''
     })
+    this.props.history.push('/')
+  }
+
+  responseGoogle = (response) => {
+    const id_token = response.getAuthResponse().id_token;
+    this.props.googleAuth(id_token)
     this.props.history.push('/')
   }
 
@@ -86,6 +94,13 @@ class UserInput extends React.Component {
   </Form.Group>
   <Form.Text className="text-muted">
       Note: We'll never share your data with anyone else.
+      <GoogleLogin
+      clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={this.responseGoogle}
+      onFailure={this.responseGoogle}
+      cookiePolicy={'single_host_origin'}
+    />
     </Form.Text>
   <Button variant="primary" type="submit">
     Signup
@@ -95,6 +110,6 @@ class UserInput extends React.Component {
   }
 }
 
-export default connect(null, {signupUser})(UserInput)
+export default connect(null, {signupUser, googleAuth})(UserInput)
 
 

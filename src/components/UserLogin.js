@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
+import GoogleLogin from 'react-google-login';
+import {googleAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
 class UserLogin extends React.Component {
@@ -23,6 +25,14 @@ class UserLogin extends React.Component {
       email: '',
       password: '' 
     })
+    this.props.history.push('/')
+  }
+
+  responseGoogle = (response) => {
+    const id_token = response.getAuthResponse().id_token;
+    console.log(response, response.profileObj)
+    debugger
+    this.props.googleAuth(id_token)
     this.props.history.push('/')
   }
 
@@ -49,14 +59,22 @@ class UserLogin extends React.Component {
   </Form.Group>
   <Form.Text className="text-muted">
       Note: We'll never share your data with anyone else.
+      <GoogleLogin
+      clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={this.responseGoogle}
+      onFailure={this.responseGoogle}
+      cookiePolicy={'single_host_origin'}
+    />
     </Form.Text>
   <Button variant="primary" type="submit">
     Login
   </Button>
 </Form>
+
     )
   }
 }
 
-export default connect(null, {loginUser})(UserLogin)
+export default connect(null, {loginUser, googleAuth})(UserLogin)
 
