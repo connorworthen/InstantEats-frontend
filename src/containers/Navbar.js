@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import GoogleLogin from 'react-google-login';
 import {logUserOut} from '../actions/userActions'
 import * as ReactBootStrap from 'react-bootstrap'
 
@@ -9,14 +10,29 @@ class Navbar extends React.Component {
     this.props.logUserOut(this.state)
   }
 
+  responseGoogle = (response) => {
+      console.log(response)
+      console.log(response.profileObj)
+    }
+
   render() {
+
     return (
       <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <ReactBootStrap.Navbar.Brand href="/">Instant Eats</ReactBootStrap.Navbar.Brand>
         {
           !this.props.userReducer.loggedIn ? 
         <div><ReactBootStrap.Nav.Link href="/signup">Sign up</ReactBootStrap.Nav.Link>
-        <ReactBootStrap.Nav.Link href="/login">Login</ReactBootStrap.Nav.Link></div> : 
+        <ReactBootStrap.Nav.Link href="/login">Login</ReactBootStrap.Nav.Link>
+        <GoogleLogin
+          clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
+        </div>
+        : 
         <div><h1>Welcome {this.props.userReducer.user.user.first}</h1> <ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
         }
       </ReactBootStrap.Navbar> 
