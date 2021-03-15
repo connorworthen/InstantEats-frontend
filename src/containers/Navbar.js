@@ -13,6 +13,8 @@ class Navbar extends React.Component {
   responseGoogle = (response) => {
       console.log(response)
       console.log(response.profileObj)
+      const id_token = response.getAuthResponse().id_token;
+      console.log(id_token)
     }
 
   render() {
@@ -28,6 +30,7 @@ class Navbar extends React.Component {
           clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={this.responseGoogle}
+          // isSignedIn={true}
           onFailure={this.responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
