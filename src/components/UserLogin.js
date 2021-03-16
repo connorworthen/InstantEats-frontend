@@ -31,10 +31,13 @@ class UserLogin extends React.Component {
   responseGoogle = (response) => {
     const id_token = response.getAuthResponse().id_token;
     console.log(response, response.profileObj)
+    const profileObj = response.profileObj.email
     debugger
-    this.props.googleAuth(id_token)
-    this.props.history.push('/')
+    this.props.googleAuth(profileObj)
+    // this.props.history.push('/')
   }
+
+  
 
   render() {
     return (

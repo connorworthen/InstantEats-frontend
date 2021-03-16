@@ -1,5 +1,5 @@
 
-export const googleAuth = (id_token) => {
+export const googleAuth = (profileObj) => {
     return (dispatch) => {
       fetch('http://localhost:3001/api/v1/login', {
       headers: {
@@ -7,7 +7,7 @@ export const googleAuth = (id_token) => {
         "Accept": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify(id_token)
+      body: JSON.stringify(profileObj)
     })
     .then(resp => resp.json())
     .then(data => dispatch(
@@ -16,3 +16,5 @@ export const googleAuth = (id_token) => {
     ))
   }
 }
+
+// need to set google auth to signup form to accept user data and create token
