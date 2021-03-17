@@ -1,6 +1,7 @@
 const defaultState = {
     loggedIn: false,
-    user: {}
+    user: {},
+    authProfile: {}
 }
 
 export default function userReducer(state = defaultState, action ) {
@@ -10,6 +11,11 @@ export default function userReducer(state = defaultState, action ) {
       return {
         loggedIn: true,
         user: {...action.payload}
+      }
+    case 'AUTH_USER':
+      return {
+        loggedIn: true,
+        authProfile: {...action.payload}
       }
     case "LOG_OUT":
       localStorage.clear()

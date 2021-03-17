@@ -33,7 +33,7 @@ class UserLogin extends React.Component {
     console.log(response, response.profileObj)
     const profileObj = response.profileObj.email
     debugger
-    this.props.googleAuth(profileObj)
+    this.props.googleAuth(id_token, profileObj)
     // this.props.history.push('/')
   }
 
