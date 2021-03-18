@@ -20,7 +20,7 @@ class Navbar extends React.Component {
         <ReactBootStrap.Nav.Link href="/login">Login</ReactBootStrap.Nav.Link>
         </div>
         : 
-        <div><h1>Welcome, {this.props.userReducer.authProfile.profileObj}</h1><ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
+        <div><h1>Welcome, {this.props.userReducer.user.profileObj} </h1><ReactBootStrap.Nav.Link onClick={this.handleLogout}>Logout</ReactBootStrap.Nav.Link></div>
         }
       </ReactBootStrap.Navbar> 
     )
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {logUserOut})(Navbar)
 
-// {this.props.userReducer.user.user.first}
+// : {this.props.userReducer.user.user.first}

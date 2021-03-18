@@ -30,13 +30,10 @@ class UserLogin extends React.Component {
   }
 
   responseGoogle = (res) => {
-    const id_token = res.getAuthResponse().id_token;
-    console.log('[Login Success]:', res.profileObj)
     const profileObj = res.profileObj.email
-    refreshTokenSetup(res)
-    debugger
-    // this.props.googleAuth(id_token, profileObj)
-    // this.props.history.push('/')
+    this.props.refreshTokenSetup(res)
+    this.props.googleAuth(profileObj)
+    this.props.history.push('/')
   }
 
   
@@ -70,6 +67,7 @@ class UserLogin extends React.Component {
       onSuccess={this.responseGoogle}
       onFailure={this.responseGoogle}
       cookiePolicy={'single_host_origin'}
+      isSignedIn={true}
     />
     </Form.Text>
   <Button variant="primary" type="submit">
