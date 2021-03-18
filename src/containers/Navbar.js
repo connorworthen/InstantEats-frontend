@@ -10,7 +10,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-
     return (
       <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <ReactBootStrap.Navbar.Brand href="/">Instant Eats</ReactBootStrap.Navbar.Brand>
@@ -36,3 +35,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {logUserOut})(Navbar)
 
 // : {this.props.userReducer.user.user.first}
+
+// if user signed in through google clear google local storage & signout else if user signed in w/o 3rd party clear local storage
