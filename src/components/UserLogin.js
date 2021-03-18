@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
+import { refreshTokenSetup } from '../utils/refreshToken'
 import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
@@ -28,12 +29,13 @@ class UserLogin extends React.Component {
     this.props.history.push('/')
   }
 
-  responseGoogle = (response) => {
-    const id_token = response.getAuthResponse().id_token;
-    console.log(response, response.profileObj)
-    const profileObj = response.profileObj.email
+  responseGoogle = (res) => {
+    const id_token = res.getAuthResponse().id_token;
+    console.log('[Login Success]:', res.profileObj)
+    const profileObj = res.profileObj.email
+    refreshTokenSetup(res)
     debugger
-    this.props.googleAuth(id_token, profileObj)
+    // this.props.googleAuth(id_token, profileObj)
     // this.props.history.push('/')
   }
 
@@ -79,5 +81,5 @@ class UserLogin extends React.Component {
   }
 }
 
-export default connect(null, {loginUser, googleAuth})(UserLogin)
+export default connect(null, {loginUser, googleAuth, refreshTokenSetup})(UserLogin)
 
