@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {logUserOut} from '../actions/userActions'
+// import {GoogleLogout} from 'react-google-login';
 import * as ReactBootStrap from 'react-bootstrap'
 
 class Navbar extends React.Component {

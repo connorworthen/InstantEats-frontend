@@ -2,8 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
 import { refreshTokenSetup } from '../utils/refreshToken'
+import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
+import {facebookAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
 class UserLogin extends React.Component {
@@ -34,6 +36,12 @@ class UserLogin extends React.Component {
     this.props.refreshTokenSetup(res)
     this.props.googleAuth(profileObj)
     this.props.history.push('/')
+  }
+  
+  responseFacebook = (fields) => {
+    console.log('test', fields)
+    const profileObj = fields.name
+    this.props.facebookAuth(profileObj)
   }
 
   
@@ -67,8 +75,15 @@ class UserLogin extends React.Component {
       onSuccess={this.responseGoogle}
       onFailure={this.responseGoogle}
       cookiePolicy={'single_host_origin'}
-      isSignedIn={true}
+      // isSignedIn={true}
     />
+
+    <FacebookLogin
+    appId="1530624210459288"
+    // autoLoad={true}
+    fields="name,email,picture"
+    onClick={this.componentClicked}
+    callback={this.responseFacebook} />
     </Form.Text>
   <Button variant="primary" type="submit">
     Login
@@ -79,5 +94,5 @@ class UserLogin extends React.Component {
   }
 }
 
-export default connect(null, {loginUser, googleAuth, refreshTokenSetup})(UserLogin)
+export default connect(null, {loginUser, googleAuth, refreshTokenSetup, facebookAuth})(UserLogin)
 

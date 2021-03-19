@@ -6,3 +6,10 @@ export const googleAuth = (profileObj) => {
     payload: {profileObj}
   }
 }
+
+export const facebookAuth = (profileObj) => {
+  return {
+    type: 'SET_USER',
+    payload: {profileObj}
+  }
+}

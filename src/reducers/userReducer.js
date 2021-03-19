@@ -12,7 +12,6 @@ export default function userReducer(state = defaultState, action ) {
       }
     case "LOG_OUT":
       localStorage.clear()
-      debugger
         return {
           loggedIn: false,
           user: {}
