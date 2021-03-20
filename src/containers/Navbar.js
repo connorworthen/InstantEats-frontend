@@ -13,10 +13,6 @@ class Navbar extends React.Component {
     this.props.logUserOut(this.state)
   }
 
-  test = () => {
-    console.log('test')
-  }
-
 
   render() {
     return (
@@ -43,18 +39,11 @@ class Navbar extends React.Component {
                 <h3 className="user-header">
                   <i className="far fa-user-circle" aria-hidden="true"></i>
                     Hi, {this.props.userReducer.user.profileObj}             
-                    <span onClick={this.test}><i className="fas fa-chevron-down" aria-hidden="true"></i></span>
-                </h3>             
-                <ul className="header-dropdown-menu">
-                  <div className="dropdown-item">
-                    <a className="profile-link">
-                      <li>Profile</li>
-                    </a>
-                  </div>
-                  <div className="dropdown-item">
-                    <li>Sign Out</li>
-                  </div>
-                </ul>
+                    <span onClick={this.showMenu}><i className="fas fa-chevron-down" aria-hidden="true"></i></span>
+                </h3> 
+                  {/* <div>
+                    dropdown
+                  </div> */}
               </div>
               }
           </ul>
