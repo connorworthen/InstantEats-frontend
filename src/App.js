@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {autoLogin} from './actions/userActions'
 import RestaurantsContainer from './containers/RestaurantsContainer'
-import Navbar from "./containers/Navbar";
+import Nav from "./containers/Navbar";
 import Search from './containers/Search'
 import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navbar />
+        <Nav />
         <Route exact path='/' component={Search} />
         <RestaurantsContainer />
         <Route path='/signup' component={UserSignup} />
