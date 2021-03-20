@@ -13,40 +13,45 @@ class Navbar extends React.Component {
     this.props.logUserOut(this.state)
   }
 
+  test = () => {
+    console.log('test')
+  }
+
+
   render() {
     return (
       <div>
-        <header class="nav-bar">
-          <ul class="nav-bar-items">
+        <header className="nav-bar">
+          <ul className="nav-bar-items">
             <li>
               <a href="/">
-                <div class="nav-logo">
+                <div className="nav-logo">
                   <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/sleeper-chair.png" />
-                  <h1 class="logo">Instant Eats</h1>
+                  <h1 className="logo">Instant Eats</h1>
                 </div>
               </a>
             </li>
             { !this.props.userReducer.loggedIn ? 
             <li>
               <nav class="greeting-links">
-                <Link to="/signup" class="form-button-signup nav-button">Sign up</Link>
-                <Link to="login" class="form-button-signin nav-button">Sign in</Link>
+                <Link to="/signup" className="form-button-signup nav-button">Sign up</Link>
+                <Link to="login" className="form-button-signin nav-button">Sign in</Link>
               </nav>
             </li>
               :
-              <div class="userProfileDrop">
-                <h3 class="user-header">
-                  <i class="far fa-user-circle" aria-hidden="true"></i>
-                    Hi, {this.props.userReducer.user.profileObj}
-                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                </h3>
-                <ul class="header-dropdown-menu">
-                  <div class="dropdown-item">
-                    <a class="profile-link" href="#/users/22">
-                      <li>My Profile</li>
+              <div className="userProfileDrop">
+                <h3 className="user-header">
+                  <i className="far fa-user-circle" aria-hidden="true"></i>
+                    Hi, {this.props.userReducer.user.profileObj}             
+                    <span onClick={this.test}><i className="fas fa-chevron-down" aria-hidden="true"></i></span>
+                </h3>             
+                <ul className="header-dropdown-menu">
+                  <div className="dropdown-item">
+                    <a className="profile-link">
+                      <li>Profile</li>
                     </a>
                   </div>
-                  <div class="dropdown-item">
+                  <div className="dropdown-item">
                     <li>Sign Out</li>
                   </div>
                 </ul>
