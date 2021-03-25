@@ -40,14 +40,9 @@ const Navbar = (props) => {
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <h1>Login Form</h1>
                 </Modal.Header>
-                <Modal.Body>{UserSignin}</Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                </Modal.Footer>
+                <Modal.Body ><UserSignin /></Modal.Body>
               </Modal>
               </nav>
 

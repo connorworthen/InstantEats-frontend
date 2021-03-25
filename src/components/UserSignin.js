@@ -10,7 +10,7 @@ import {Form, Button} from 'react-bootstrap'
 
 const userSignin = (props) => {
   
-  const [email, password] = useState('');
+  // const [email, password] = useState('');
 
   const handleChange = (event) => {
     // this.setState({
@@ -39,7 +39,7 @@ const userSignin = (props) => {
 
   return (
         <Form onSubmit={handleSubmit}>
-          <h1>Login Form</h1><br></br>
+          {/* <h1>Login Form</h1><br></br> */}
   <Form.Group controlId="formBasicEmail">
     <Form.Label><b>Email Address:</b></Form.Label>
     <Form.Control type="email" 
