@@ -1,5 +1,5 @@
 .nav-bar{
-    background: white
+    background: black
 }
 
 ul.nav-bar-items {
@@ -26,17 +26,17 @@ nav.greeting-links {
 
 .form-button-signup {
     color: #fff;
-    background-color: #247f9e;
+    background-color:red;
     font-size: 20px;
     margin: 0 8px;
-    border: 0.0625rem solid #247f9e;
+    border: 0.0625rem solid red;
     padding: 8px 12px 6px 12px;
     cursor: pointer;
     border-radius: 3px;
 }
 
 .form-button-signin {
-    color: #2d333f;
+    color: white;
     background-color: transparent;
     border: 0.0625rem solid #d8d9db;
     font-size: 20px;
@@ -51,6 +51,7 @@ h1.logo {
     font-weight: 700;
     margin-left: 10px;
     cursor: pointer;
+    color: red;
 }
 
 .nav-logo {

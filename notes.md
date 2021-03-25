@@ -28,3 +28,40 @@ A. Checkout Page post cart
 B. Cart Moved to sidebar update in restaurant/:id
 C. Modal for signup/login
 D. Modal for each menu item
+
+
+<div>
+        <header className="nav-bar">
+          <ul className="nav-bar-items">
+            <li>
+              
+                <div className="nav-logo">
+                  {/* <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/sleeper-chair.png" /> */}
+                  <h1 className="logo">Instant Eats</h1>
+                </div>
+              
+            </li>
+            { ! props.userReducer.loggedIn ? 
+            <li>
+              <nav class="greeting-links">
+                <Link to="/signup" className="form-button-signup nav-button">Sign up</Link>
+                <Button className="form-button-signin nav-button" variant="primary" onClick={handleShow}>
+                  
+              </Button>
+              </nav>
+            </li>
+              :
+                  <Dropdown>          
+                    <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
+                      <i className="far fa-user-circle" aria-hidden="true"></i>
+                      Hi, {props.userReducer.user.profileObj}
+                    </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+              }
+          </ul>
+        </header>
