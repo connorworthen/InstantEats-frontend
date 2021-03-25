@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {connect} from 'react-redux';
 import {logUserOut} from '../actions/userActions'
 import {Link} from 'react-router-dom'
-// import {GoogleLogout} from 'react-google-login';
+import UserSignin from '../components/UserSignin'
 import { Dropdown, Button, Modal } from 'react-bootstrap'
 import '../nav.css'
 import '../signedin_nav.css'
@@ -39,19 +39,16 @@ const Navbar = (props) => {
               </Button>
 
               <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+                <Modal.Header closeButton>
+                  <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{UserSignin}</Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                </Modal.Footer>
+              </Modal>
               </nav>
 
             </li>
