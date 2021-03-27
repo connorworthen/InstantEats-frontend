@@ -18,6 +18,12 @@ const Navbar = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [userForm, setUserForm] = useState([]);
+  const addUserForm = (log) => {
+    let logs = [...userForm, log]
+    setUserForm(logs)
+  }
+
     return (
       <div>
         <header className="nav-bar">
@@ -42,7 +48,7 @@ const Navbar = (props) => {
                 <Modal.Header closeButton>
                   <h1>Login Form</h1>
                 </Modal.Header>
-                <Modal.Body ><UserSignin /></Modal.Body>
+                <Modal.Body><UserSignin /></Modal.Body>
               </Modal>
               </nav>
 
