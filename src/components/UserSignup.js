@@ -1,115 +1,93 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
-import GoogleLogin from 'react-google-login';
-import {googleAuth} from '../actions/oauthActions'
+// import { refreshTokenSetup } from '../utils/refreshToken'
+// import FacebookLogin from 'react-facebook-login';
+// import GoogleLogin from 'react-google-login';
+// import {googleAuth} from '../actions/oauthActions'
+// import {facebookAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
-class UserInput extends React.Component {
+const UserSignup = (props) => {
   
-  state = {
-    first: '',
-    last: '',
-    email: '',
-    password: '',
-    phone_number: ''
+  const [first, setFirst] = useState("")
+  const [last, setLast] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [phone_number, setPhone_number] = useState("")
+
+  const handleSubmit= (e) => {
+    props.signupUser(first, last, email, password, phone_number)
+    e.preventDefault()
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+  return (
+    <Form onSubmit={e => { handleSubmit(e) }}>
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.signupUser(this.state)
-    this.setState({
-      first: '',
-      last: '',
-      email: '',
-      password: '',
-      phone_number: ''
-    })
-    this.props.history.push('/')
-  }
+      <Form.Group controlId="formBasicFirst">
+        <Form.Label><b>First Name:</b></Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="First Name*" 
+          name="first" 
+          value={first} 
+          onChange={e => setFirst(e.target.value)}  
+        />
+      </Form.Group>
 
-  responseGoogle = (response) => {
-    const id_token = response.getAuthResponse().id_token;
-    this.props.googleAuth(id_token)
-    this.props.history.push('/')
-  }
+      <Form.Group controlId="formBasicLast">
+        <Form.Label><b>Last Name:</b></Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Last Name*" 
+          name="last" 
+          value={last} 
+          onChange={e => setLast(e.target.value)}  
+        />
+      </Form.Group>
 
-  render() {
-    return (
-      <Form onSubmit={this.handleSubmit}>
-        <h1>Signup Form</h1><br></br>
-  <Form.Group controlId="formBasicFirst">
-    <Form.Label><b>First Name:</b></Form.Label>
-    <Form.Control type="text" 
-            placeholder="First Name*" 
-            name="first" 
-            value={this.state.first} 
-            onChange={this.handleChange} />
-  </Form.Group>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label><b>Email Address:</b></Form.Label>
+        <Form.Control 
+          type="email" 
+          placeholder="Email*" 
+          name="email" 
+          value={email} 
+          onChange={e => setEmail(e.target.value)}  
+        />
+      </Form.Group>
 
-  <Form.Group controlId="formBasicLast">
-    <Form.Label><b>Last Name:</b></Form.Label>
-    <Form.Control type="text" 
-            placeholder="Last Name*" 
-            name="last" 
-            value={this.state.last} 
-            onChange={this.handleChange}   />
-  </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label><b>Password:</b></Form.Label>
+        <Form.Control 
+          type="password" 
+          placeholder="Password*" 
+          name="password" 
+          value={password} 
+          onChange={e => setPassword(e.target.value)}  
+        />
+      </Form.Group>
 
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label><b>Email Address:</b></Form.Label>
-    <Form.Control type="email" 
-            placeholder="Email*" 
-            name="email" 
-            value={this.state.email} 
-            onChange={this.handleChange}  />
-  </Form.Group>
+      <Form.Group controlId="formBasicPhoneNumber">
+        <Form.Label><b>Phone Number:</b></Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Phone Number*" 
+          name="phone_number" 
+          value={phone_number} 
+          onChange={e => setPhone_number(e.target.value)}  
+        />
+      </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label><b>Password:</b></Form.Label>
-    <Form.Control type="password" 
-            placeholder="Password*" 
-            name="password" 
-            value={this.state.password} 
-            onChange={this.handleChange}  />
-  </Form.Group>
+      <Button variant="primary" type="submit">
+        Login
+      </Button>
 
-  <Form.Group controlId="formBasicPhoneNumber">
-    <Form.Label><b>Phone Number:</b></Form.Label>
-    <Form.Control type="text" 
-            placeholder="Phone Number*" 
-            name="phone_number" 
-            value={this.state.phone_number} 
-            onChange={this.handleChange}   />
-  </Form.Group>
+    </Form>
 
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="I agree to Terms of Use & Privacy Statement*" />
-  </Form.Group>
-  <Form.Text className="text-muted">
-      Note: We'll never share your data with anyone else.
-      <GoogleLogin
-      clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
-      buttonText="Login"
-      onSuccess={this.responseGoogle}
-      onFailure={this.responseGoogle}
-      cookiePolicy={'single_host_origin'}
-    />
-    </Form.Text>
-  <Button variant="primary" type="submit">
-    Signup
-  </Button>
-</Form>
     )
-  }
 }
 
-export default connect(null, {signupUser, googleAuth})(UserInput)
+export default connect(null, {signupUser})(UserSignup)
 
 

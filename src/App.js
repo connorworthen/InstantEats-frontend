@@ -6,7 +6,7 @@ import Nav from "./containers/Navbar";
 import Search from './containers/Search'
 import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
-import UserLogin from './components/UserLogin'
+import UserSignin from './components/UserSignin'
 import UserSignup from './components/UserSignup'
 import Footer from './containers/Footer'
 
@@ -23,7 +23,7 @@ class App extends React.Component {
         <Route exact path='/' component={Search} />
         <RestaurantsContainer />
         <Route path='/signup' component={UserSignup} />
-        <Route exact path='/login' component={UserLogin} />  
+        <Route exact path='/login' component={UserSignin} />  
         <Route exact path='/cart' component={Checkout} />
         <Footer />
       </div>

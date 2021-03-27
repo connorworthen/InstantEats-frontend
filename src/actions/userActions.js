@@ -2,7 +2,7 @@ const setUser = (payload) => ({ type: "SET_USER", payload})
 
 export const logUserOut = () => ({type: "LOG_OUT"})
 
-export const signupUser = (signupData) => {
+export const signupUser = (first, last, email, password, phone_number) => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/signup', {
       headers: {
@@ -12,11 +12,11 @@ export const signupUser = (signupData) => {
       method: 'POST',
       body: JSON.stringify({
         user: {
-          first: signupData.first,
-          last: signupData.last,
-          email: signupData.email,
-          password: signupData.password,
-          phone_number: signupData.phone_number
+          first: first,
+          last: last,
+          email: email,
+          password: password,
+          phone_number: phone_number
         }
       })
     })

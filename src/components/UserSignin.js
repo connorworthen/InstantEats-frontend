@@ -14,12 +14,9 @@ const UserSignin = (props) => {
   const [password, setPassword] = useState("")
 
   const handleSubmit= (e) => {
-    // debugger
-    // addUserForm([email, password])
-    // debugger
     props.loginUser(email, password)
     e.preventDefault()
-    }
+  }
 
   return (
     <Form onSubmit={e => { handleSubmit(e) }}>

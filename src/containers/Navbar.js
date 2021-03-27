@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import {connect} from 'react-redux';
 import {logUserOut} from '../actions/userActions'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import UserSignin from '../components/UserSignin'
 import { Dropdown, Button, Modal } from 'react-bootstrap'
 import '../nav.css'
 import '../signedin_nav.css'
+import UserSignup from '../components/UserSignup';
 
 const Navbar = (props) => {
 
@@ -13,16 +14,19 @@ const Navbar = (props) => {
   //   this.props.logUserOut(this.state)
   // }
 
-  const [show, setShow] = useState(false);
+  const [showSignup, setShowSignup] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleLoginClose = () => setShowLogin(false);
+  const handleLoginShow = () => setShowLogin(true);
+  const handleSignupClose = () => setShowSignup(false);
+  const handleSignupShow = () => setShowSignup(true);
 
-  const [userForm, setUserForm] = useState([]);
-  const addUserForm = (log) => {
-    let logs = [...userForm, log]
-    setUserForm(logs)
-  }
+  // const [userForm, setUserForm] = useState([]);
+  // const addUserForm = (log) => {
+  //   let logs = [...userForm, log]
+  //   setUserForm(logs)
+  // }
 
     return (
       <div>
@@ -39,12 +43,17 @@ const Navbar = (props) => {
             { ! props.userReducer.loggedIn ? 
             <li>
               <nav class="greeting-links">
-                <Link to="/signup" className="form-button-signup nav-button">Sign up</Link>
-                <Button className="form-button-signin nav-button" variant="primary" onClick={handleShow}>
-                  
-              </Button>
+                <Button className="form-button-signup nav-button" variant="primary" onClick={handleSignupShow}>Signup</Button>
+                <Button className="form-button-signin nav-button" variant="primary" onClick={handleLoginShow}>Login</Button>
 
-              <Modal show={show} onHide={handleClose}>
+              <Modal show={showSignup} onHide={handleSignupClose}>
+                <Modal.Header closeButton>
+                  <h1>Signup Form</h1>
+                </Modal.Header>
+                <Modal.Body><UserSignup /></Modal.Body>
+              </Modal>
+
+              <Modal show={showLogin} onHide={handleLoginClose}>
                 <Modal.Header closeButton>
                   <h1>Login Form</h1>
                 </Modal.Header>
@@ -57,7 +66,7 @@ const Navbar = (props) => {
                   <Dropdown>          
                     <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
                       <i className="far fa-user-circle" aria-hidden="true"></i>
-                      Hi, {props.userReducer.user.profileObj}
+                      Hi, {props.userReducer.user.user.email}
                     </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
