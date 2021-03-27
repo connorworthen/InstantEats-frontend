@@ -12,9 +12,10 @@ const Navbar = (props) => {
 
   const handleLogout = () => {
     props.logUserOut()
+    handleLoginClose()
+    handleSignupClose()
   }
   
-
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
@@ -73,7 +74,7 @@ const Navbar = (props) => {
                     <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item onClick={handleLogout} onHide={handleLoginClose}>Logout</Dropdown.Item>                    
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>                    
                     </Dropdown.Menu>
                 </Dropdown>
               }
