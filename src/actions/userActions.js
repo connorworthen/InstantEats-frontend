@@ -28,7 +28,7 @@ export const signupUser = (signupData) => {
   }
 }
 
-export const loginUser = (loginData) => {
+export const loginUser = (email, password) => {
     return (dispatch) => {
       fetch('http://localhost:3001/api/v1/login', {
       headers: {
@@ -36,7 +36,12 @@ export const loginUser = (loginData) => {
         "Accept": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify(loginData)
+      body: JSON.stringify({
+        user: {
+          email: email,
+          password: password
+        }
+      })
     })
     .then(resp => resp.json())
     .then(data => dispatch(

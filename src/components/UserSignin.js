@@ -8,21 +8,26 @@ import {loginUser} from '../actions/userActions'
 // import {facebookAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
-const UserSignin = ({addUserForm}) => {
+const UserSignin = (props) => {
   
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
   const handleSubmit= (e) => {
-      addUserForm([email, password])
-      e.preventDefault()
+    e.preventDefault()
+    // debugger
+    // addUserForm([email, password])
+    debugger
+    props.loginUser(email, password)
     }
 
   return (
     <Form onSubmit={e => { handleSubmit(e) }}>
+
       <Form.Group controlId="formBasicEmail">
         <Form.Label><b>Email Address:</b></Form.Label>
-        <Form.Control type="email" 
+        <Form.Control 
+          type="email" 
           placeholder="Email*" 
           name="email" 
           value={email} 
@@ -40,9 +45,11 @@ const UserSignin = ({addUserForm}) => {
           onChange={e => setPassword(e.target.value)}  
         />
       </Form.Group>
+
       <Button variant="primary" type="submit">
         Login
       </Button>
+
     </Form>
 
     )
