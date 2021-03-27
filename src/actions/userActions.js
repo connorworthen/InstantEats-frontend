@@ -30,6 +30,7 @@ export const signupUser = (signupData) => {
 
 export const loginUser = (email, password) => {
     return (dispatch) => {
+      // debugger
       fetch('http://localhost:3001/api/v1/login', {
       headers: {
         "Content-Type": "application/json",

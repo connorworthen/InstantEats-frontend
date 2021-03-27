@@ -10,15 +10,15 @@ import {Form, Button} from 'react-bootstrap'
 
 const UserSignin = (props) => {
   
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSubmit= (e) => {
-    e.preventDefault()
     // debugger
     // addUserForm([email, password])
-    debugger
+    // debugger
     props.loginUser(email, password)
+    e.preventDefault()
     }
 
   return (
