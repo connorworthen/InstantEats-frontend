@@ -10,9 +10,10 @@ import UserSignup from '../components/UserSignup';
 
 const Navbar = (props) => {
 
-  // const handleLogout = () => {
-  //   this.props.logUserOut(this.state)
-  // }
+  const handleLogout = () => {
+    props.logUserOut()
+  }
+  
 
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
@@ -69,9 +70,10 @@ const Navbar = (props) => {
                       Hi, {props.userReducer.user.user.email}
                     </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item onClick={handleLogout} onHide={handleLoginClose}>Logout</Dropdown.Item>                    
                     </Dropdown.Menu>
                 </Dropdown>
               }
