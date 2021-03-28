@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 import {logUserOut} from '../actions/userActions'
 // import {Link} from 'react-router-dom'
 import UserSignin from '../components/UserSignin'
 import { Dropdown, Button, Modal } from 'react-bootstrap'
 import '../nav.css'
 import '../signedin_nav.css'
-import UserSignup from '../components/UserSignup';
+import UserSignup from '../components/UserSignup'
+import AuthLogin from '../components/AuthLogin'
 
 const Navbar = (props) => {
 
@@ -50,7 +52,9 @@ const Navbar = (props) => {
 
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>
-                  <h1>Signup Form</h1>
+                  <h1>Sign Up</h1>
+                  <h6>Already have an account?<Link to="/login">Sign In</Link></h6>
+                  <AuthLogin />
                 </Modal.Header>
                 <Modal.Body><UserSignup /></Modal.Body>
               </Modal>
