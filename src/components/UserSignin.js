@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
-// import { refreshTokenSetup } from '../utils/refreshToken'
-// import FacebookLogin from 'react-facebook-login';
-// import GoogleLogin from 'react-google-login';
-// import {googleAuth} from '../actions/oauthActions'
-// import {facebookAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
 const UserSignin = (props) => {

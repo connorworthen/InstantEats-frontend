@@ -72,7 +72,8 @@ const Navbar = (props) => {
                   <Dropdown>          
                     <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
                       <i className="far fa-user-circle" aria-hidden="true"></i>
-                      Hi, {props.userReducer.user.user.email}
+                      {/* Hi, {props.userReducer.user.user.email} */}
+                      Hi, {props.userReducer.user.profileObj}
                     </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
