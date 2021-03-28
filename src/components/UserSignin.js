@@ -20,7 +20,6 @@ const UserSignin = (props) => {
         <Form.Label><b>Email Address:</b></Form.Label>
         <Form.Control 
           type="email" 
-          placeholder="Email*" 
           name="email" 
           value={email} 
           onChange={e => setEmail(e.target.value)}  
@@ -30,8 +29,7 @@ const UserSignin = (props) => {
       <Form.Group controlId="formBasicPassword">
         <Form.Label><b>Password:</b></Form.Label>
         <Form.Control 
-          type="password" 
-          placeholder="Password*" 
+          type="password"
           name="password" 
           value={password} 
           onChange={e => setPassword(e.target.value)}  

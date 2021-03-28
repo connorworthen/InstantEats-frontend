@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
-// import { refreshTokenSetup } from '../utils/refreshToken'
-// import FacebookLogin from 'react-facebook-login';
-// import GoogleLogin from 'react-google-login';
-// import {googleAuth} from '../actions/oauthActions'
-// import {facebookAuth} from '../actions/oauthActions'
 import {Form, Button} from 'react-bootstrap'
 
 const UserSignup = (props) => {
@@ -28,7 +23,6 @@ const UserSignup = (props) => {
         <Form.Label><b>First Name:</b></Form.Label>
         <Form.Control 
           type="text" 
-          placeholder="First Name*" 
           name="first" 
           value={first} 
           onChange={e => setFirst(e.target.value)}  
@@ -38,8 +32,7 @@ const UserSignup = (props) => {
       <Form.Group controlId="formBasicLast">
         <Form.Label><b>Last Name:</b></Form.Label>
         <Form.Control 
-          type="text" 
-          placeholder="Last Name*" 
+          type="text"
           name="last" 
           value={last} 
           onChange={e => setLast(e.target.value)}  
@@ -50,7 +43,6 @@ const UserSignup = (props) => {
         <Form.Label><b>Email Address:</b></Form.Label>
         <Form.Control 
           type="email" 
-          placeholder="Email*" 
           name="email" 
           value={email} 
           onChange={e => setEmail(e.target.value)}  
@@ -61,7 +53,6 @@ const UserSignup = (props) => {
         <Form.Label><b>Password:</b></Form.Label>
         <Form.Control 
           type="password" 
-          placeholder="Password*" 
           name="password" 
           value={password} 
           onChange={e => setPassword(e.target.value)}  
@@ -71,8 +62,7 @@ const UserSignup = (props) => {
       <Form.Group controlId="formBasicPhoneNumber">
         <Form.Label><b>Phone Number:</b></Form.Label>
         <Form.Control 
-          type="text" 
-          placeholder="Phone Number*" 
+          type="text"
           name="phone_number" 
           value={phone_number} 
           onChange={e => setPhone_number(e.target.value)}  

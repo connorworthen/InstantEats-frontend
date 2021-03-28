@@ -55,6 +55,7 @@ const Navbar = (props) => {
                   <h1>Sign Up</h1>
                   <h6>Already have an account?<Link to="/login">Sign In</Link></h6>
                   <AuthLogin />
+                  --------------- or continue with email ---------------
                 </Modal.Header>
                 <Modal.Body><UserSignup /></Modal.Body>
               </Modal>
