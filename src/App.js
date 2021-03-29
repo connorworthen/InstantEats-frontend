@@ -9,6 +9,7 @@ import Checkout from './components/Checkout'
 import UserSignin from './components/UserSignin'
 import UserSignup from './components/UserSignup'
 import Footer from './containers/Footer'
+import Body from './containers/Body'
 
 class App extends React.Component {
 
@@ -25,6 +26,7 @@ class App extends React.Component {
         <Route path='/signup' component={UserSignup} />
         <Route exact path='/login' component={UserSignin} />  
         <Route exact path='/cart' component={Checkout} />
+        <Body />
         <Footer />
       </div>
     )
