@@ -33,15 +33,15 @@ const Navbar = (props) => {
             <li>
               
                 <div className="nav-logo">
-                  <Link to="/"><h1 className="logo">Instant Eats</h1></Link>
+                  <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link>
                 </div>
               
             </li>
             { ! props.userReducer.loggedIn ? 
             <li>
               <nav class="greeting-links">
-                <Button className="form-button-signup nav-button" variant="primary" onClick={handleSignupShow}>Signup</Button>
-                <Button className="form-button-signin nav-button" variant="primary" onClick={handleLoginShow}>Login</Button>
+                <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
+                <button className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</button>
 
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>

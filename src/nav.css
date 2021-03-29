@@ -1,5 +1,5 @@
 .nav-bar{
-    background: black
+    background: red;
 }
 
 ul.nav-bar-items {
@@ -11,7 +11,7 @@ ul.nav-bar-items {
     padding: 5px;
     margin: 0 auto;
     /* background: orange; */
-    border-bottom: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
     /* max-width: 90%; */
 }
 
@@ -26,7 +26,8 @@ nav.greeting-links {
 
 .form-button-signup {
     color: #fff;
-    background-color:red;
+    background-color: white;
+    color: red;
     font-size: 20px;
     margin: 0 8px;
     border: 0.0625rem solid red;
@@ -38,12 +39,12 @@ nav.greeting-links {
 .form-button-signin {
     color: white;
     background-color: transparent;
-    border: 0.0625rem solid #d8d9db;
+    /* border: 0.0625rem solid #d8d9db; */
     font-size: 20px;
     margin: 0;
     padding: 8px 12px 6px 12px;
     cursor: pointer;
-    border-radius: 3px;
+    /* border-radius: 3px; */
 }
 
 h1.logo {
@@ -51,7 +52,7 @@ h1.logo {
     font-weight: 700;
     margin-left: 10px;
     cursor: pointer;
-    color: red;
+    color: white;
 }
 
 .nav-logo {
