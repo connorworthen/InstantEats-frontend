@@ -6,8 +6,12 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
 import {facebookAuth} from '../actions/oauthActions'
+// import GoogleButton from 'react-google-button'
 
 const AuthLogin  = (props) => {
+
+  const facebookId = "1530624210459288"
+  const googleId = "52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
 
   const responseGoogle = (res) => {
     const profileObj = res.profileObj.email
@@ -23,23 +27,26 @@ const AuthLogin  = (props) => {
 
   return (
     <div>
-      <GoogleLogin
-        clientId="52473665366-id5h9o0on0jp6mrlm6otc9tr47j0f9bl.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-        // isSignedIn={true}
-      />
+        <GoogleLogin
+          clientId={googleId}
+          // render={renderProps => (
+          //   <GoogleButton onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</GoogleButton>
+          // )}
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          // isSignedIn={true}
+        />
 
-      <FacebookLogin
-        appId="1530624210459288"
-        // autoLoad={true}
-        fields="name,email,picture"
-        // onClick={componentClicked}
-        callback={responseFacebook} 
-      />
-    </div>
+        <FacebookLogin
+          appId={facebookId}
+          butttonText="&nbsp;&nbsp;Sign In with Google"
+          // autoLoad={true}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={responseFacebook}
+        />
+  </div>
   )
 }
 

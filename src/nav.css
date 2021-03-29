@@ -59,3 +59,17 @@ h1.logo {
     align-items: center;
     padding: 10px 5px 10px 25px;
 }
+
+.header-type {
+    width:500px;
+    margin: 0 auto;
+    text-align: center
+}
+
+.header-link {
+    width:500px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+}

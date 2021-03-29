@@ -52,11 +52,14 @@ const Navbar = (props) => {
 
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>
-                  <h1>Sign Up</h1>
-                  <h6>Already have an account?<Link to="/login">Sign In</Link></h6>
-                  <AuthLogin />
-                  --------------- or continue with email ---------------
+                    <h1 className="header-type">Sign Up</h1>
+                  {/* <AuthLogin />
+                  --------------- or continue with email ---------------  */}
                 </Modal.Header>
+                <Modal.Body>
+                  <h6 className="header-link">Already have an account?  <Link to="/login">Sign In</Link></h6>
+                  <AuthLogin />
+                </Modal.Body>
                 <Modal.Body><UserSignup /></Modal.Body>
               </Modal>
 
