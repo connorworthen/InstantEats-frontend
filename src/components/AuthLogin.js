@@ -2,8 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {refreshTokenGoogle} from '../utils/refreshTokenGoogle'
 import {refreshTokenFacebook} from '../utils/refreshTokenFacebook'
-// import FacebookLogin from 'react-facebook-login';
-import FacebookLoginWithButton from 'react-facebook-login'
+import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
 import {facebookAuth} from '../actions/oauthActions'
@@ -36,16 +35,15 @@ const AuthLogin  = (props) => {
           cookiePolicy={'single_host_origin'}
         />
 
-        <FacebookLoginWithButton
+        <FacebookLogin
           appId={facebookId}
           fields="name,email,picture"
-          // onClick={componentClicked}
           callback={responseFacebook}
           icon="fa-facebook"
         />
 
         <div className="auth-skip"><br></br>
-          -------------------- or continue with email --------------------
+          -------------------- or continue with email -------------------- 
         </div>
   </div>
   )

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/userActions'
-import {Form, Button} from 'react-bootstrap'
+import {Form} from 'react-bootstrap'
 
 const UserSignin = (props) => {
   
@@ -36,9 +36,11 @@ const UserSignin = (props) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
+      <div className="center">
+        <button className="signup-button" variant="primary" type="submit">
+          Login
+        </button>
+      </div>
 
     </Form>
 

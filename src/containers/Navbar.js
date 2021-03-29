@@ -26,12 +26,6 @@ const Navbar = (props) => {
   const handleSignupClose = () => setShowSignup(false);
   const handleSignupShow = () => setShowSignup(true);
 
-  // const [userForm, setUserForm] = useState([]);
-  // const addUserForm = (log) => {
-  //   let logs = [...userForm, log]
-  //   setUserForm(logs)
-  // }
-
     return (
       <div>
         <header className="nav-bar">
@@ -39,8 +33,7 @@ const Navbar = (props) => {
             <li>
               
                 <div className="nav-logo">
-                  {/* <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/sleeper-chair.png" /> */}
-                  <h1 className="logo">Instant Eats</h1>
+                  <Link to="/"><h1 className="logo">Instant Eats</h1></Link>
                 </div>
               
             </li>
@@ -53,11 +46,9 @@ const Navbar = (props) => {
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>
                     <h1 className="header-type">Sign Up</h1>
-                  {/* <AuthLogin />
-                  --------------- or continue with email ---------------  */}
                 </Modal.Header>
                 <Modal.Body>
-                  <h6 className="header-link">Already have an account?  <Link to="/login">Sign In</Link></h6><br></br>
+                  <h6 className="header-link">Already have an account?  <Link to="/login" className="color-link">Sign In</Link></h6><br></br>
                   <AuthLogin />
                 </Modal.Body>
                 <Modal.Body><UserSignup /></Modal.Body>
@@ -65,10 +56,10 @@ const Navbar = (props) => {
 
               <Modal show={showLogin} onHide={handleLoginClose}>
                 <Modal.Header closeButton>
-                  <h1>Login Form</h1>
+                  <h1 className="header-type">Login Form</h1>
                 </Modal.Header>
                 <Modal.Body>
-                  <h6 className="header-link">New to Instant Eats?  <Link to="/login">Sign In</Link></h6><br></br>
+                  <h6 className="header-link">New to Instant Eats?  <Link to="/signup" className="color-link">Create Account</Link></h6><br></br>
                   <AuthLogin />
                 </Modal.Body>
                 <Modal.Body><UserSignin /></Modal.Body>

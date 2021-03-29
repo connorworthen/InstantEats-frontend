@@ -99,3 +99,7 @@ h1.logo {
     justify-content: center;
     align-items: center;
 }
+
+.color-link {
+    color: red
+}
