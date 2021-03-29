@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
 import {Form, Button} from 'react-bootstrap'
+import '../nav.css'
 
 const UserSignup = (props) => {
   
@@ -68,10 +69,12 @@ const UserSignup = (props) => {
           onChange={e => setPhone_number(e.target.value)}  
         />
       </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
+      
+      <div className="center">
+        <button className="signup-button" variant="primary" type="submit">
+          Login
+        </button>
+      </div>
 
     </Form>
 

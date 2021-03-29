@@ -8,6 +8,7 @@ import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
 import {facebookAuth} from '../actions/oauthActions'
 // import GoogleButton from 'react-google-button'
+import '../nav.css'
 
 const AuthLogin  = (props) => {
 
@@ -42,6 +43,10 @@ const AuthLogin  = (props) => {
           callback={responseFacebook}
           icon="fa-facebook"
         />
+
+        <div className="auth-skip"><br></br>
+          -------------------- or continue with email --------------------
+        </div>
   </div>
   )
 }

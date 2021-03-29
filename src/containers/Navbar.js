@@ -57,7 +57,7 @@ const Navbar = (props) => {
                   --------------- or continue with email ---------------  */}
                 </Modal.Header>
                 <Modal.Body>
-                  <h6 className="header-link">Already have an account?  <Link to="/login">Sign In</Link></h6>
+                  <h6 className="header-link">Already have an account?  <Link to="/login">Sign In</Link></h6><br></br>
                   <AuthLogin />
                 </Modal.Body>
                 <Modal.Body><UserSignup /></Modal.Body>
@@ -67,6 +67,10 @@ const Navbar = (props) => {
                 <Modal.Header closeButton>
                   <h1>Login Form</h1>
                 </Modal.Header>
+                <Modal.Body>
+                  <h6 className="header-link">New to Instant Eats?  <Link to="/login">Sign In</Link></h6><br></br>
+                  <AuthLogin />
+                </Modal.Body>
                 <Modal.Body><UserSignin /></Modal.Body>
               </Modal>
               </nav>
