@@ -25,15 +25,19 @@ nav.greeting-links {
 
 
 .form-button-signup {
-    color: #fff;
-    background-color: white;
-    color: red;
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 0%;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 20px;
-    margin: 0 8px;
-    border: 0.0625rem solid red;
-    padding: 8px 12px 6px 12px;
+    margin: 2px 1px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 50%;
 }
 
 .form-button-signin {
@@ -42,8 +46,12 @@ nav.greeting-links {
     /* border: 0.0625rem solid #d8d9db; */
     font-size: 20px;
     margin: 0;
-    padding: 8px 12px 6px 12px;
+    /* padding: 8px 12px 6px 12px; */
     cursor: pointer;
+    position: absolute;
+    right: 7%;
+    width: 80px;
+    height: 80px;
     /* border-radius: 3px; */
 }
 

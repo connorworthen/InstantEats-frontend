@@ -31,14 +31,15 @@ const Navbar = (props) => {
         <div className="hero">
           <div className="header">
             { ! props.userReducer.loggedIn ? 
-            
-              <nav>
-                <span  variant="primary" onClick={handleLoginShow}>Sign In</span>
-                <span variant="primary" onClick={handleSignupShow}>Sign Up</span>
+            <div>
+              <nav class="greeting-links">
+                <span  className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
+                <span className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</span>
+              </nav>
 
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>
-                    <h1 className="header-type">Sign Up</h1>
+                  <h1 className="header-type">Sign Up</h1>
                 </Modal.Header>
                 <Modal.Body>
                   <h6 className="header-link">Already have an account?  <Link to="/login" className="color-link">Sign In</Link></h6><br></br>
@@ -57,7 +58,7 @@ const Navbar = (props) => {
                 </Modal.Body>
                 <Modal.Body><UserSignin /></Modal.Body>
               </Modal>
-              </nav>
+              </div>
               :
                 <Dropdown>          
                   <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
