@@ -5,10 +5,11 @@ import {logUserOut} from '../actions/userActions'
 // import {Link} from 'react-router-dom'
 import UserSignin from '../components/UserSignin'
 import { Dropdown, Button, Modal } from 'react-bootstrap'
-import '../nav.css'
-import '../signedin_nav.css'
+// import '../nav.css'
+// import '../signedin_nav.css'
 import UserSignup from '../components/UserSignup'
 import AuthLogin from '../components/AuthLogin'
+import '../index.css'
 
 const Navbar = (props) => {
 
@@ -26,22 +27,14 @@ const Navbar = (props) => {
   const handleSignupClose = () => setShowSignup(false);
   const handleSignupShow = () => setShowSignup(true);
 
-    return (
-      <div>
-        <header className="nav-bar">
-          <ul className="nav-bar-items">
-            <li>
-              
-                <div className="nav-logo">
-                  <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link>
-                </div>
-              
-            </li>
+    return (     
+        <div className="hero">
+          <div className="header">
             { ! props.userReducer.loggedIn ? 
-            <li>
-              <nav class="greeting-links">
-                <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
-                <button className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</button>
+            
+              <nav>
+                <span  variant="primary" onClick={handleLoginShow}>Sign In</span>
+                <span variant="primary" onClick={handleSignupShow}>Sign Up</span>
 
               <Modal show={showSignup} onHide={handleSignupClose}>
                 <Modal.Header closeButton>
@@ -65,15 +58,13 @@ const Navbar = (props) => {
                 <Modal.Body><UserSignin /></Modal.Body>
               </Modal>
               </nav>
-
-            </li>
               :
-                  <Dropdown>          
-                    <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
-                      <i className="far fa-user-circle" aria-hidden="true"></i>
-                      {/* Hi, {props.userReducer.user.user.email} */}
-                      Hi, {props.userReducer.user.profileObj}
-                    </Dropdown.Toggle>
+                <Dropdown>          
+                  <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
+                    <i className="far fa-user-circle" aria-hidden="true"></i>
+                    {/* Hi, {props.userReducer.user.user.email} */}
+                    Hi, {props.userReducer.user.profileObj}
+                  </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
@@ -82,9 +73,8 @@ const Navbar = (props) => {
                     </Dropdown.Menu>
                 </Dropdown>
               }
-          </ul>
-        </header>
-      </div>
+          </div>
+        </div>
     )
   }
 

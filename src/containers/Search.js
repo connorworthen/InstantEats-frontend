@@ -27,7 +27,7 @@ class Search extends React.Component {
 
   render() {
       return (
-      <div className="hero">
+      <div>
         <div className="home-page">
         <header className="cover">
           <div className="cover-wrapper">

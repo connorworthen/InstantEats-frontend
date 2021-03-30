@@ -29,39 +29,62 @@ B. Cart Moved to sidebar update in restaurant/:id
 C. Modal for signup/login
 D. Modal for each menu item
 
+{ ! props.userReducer.loggedIn ? 
+            <li>
+              <nav class="greeting-links">
+                <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
+                <button className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</button>
 
-<div>
-        <header className="nav-bar">
+              <Modal show={showSignup} onHide={handleSignupClose}>
+                <Modal.Header closeButton>
+                    <h1 className="header-type">Sign Up</h1>
+                </Modal.Header>
+                <Modal.Body>
+                  <h6 className="header-link">Already have an account?  <Link to="/login" className="color-link">Sign In</Link></h6><br></br>
+                  <AuthLogin />
+                </Modal.Body>
+                <Modal.Body><UserSignup /></Modal.Body>
+              </Modal>
+
+              <Modal show={showLogin} onHide={handleLoginClose}>
+                <Modal.Header closeButton>
+                  <h1 className="header-type">Login Form</h1>
+                </Modal.Header>
+                <Modal.Body>
+                  <h6 className="header-link">New to Instant Eats?  <Link to="/signup" className="color-link">Create Account</Link></h6><br></br>
+                  <AuthLogin />
+                </Modal.Body>
+                <Modal.Body><UserSignin /></Modal.Body>
+              </Modal>
+              </nav>
+
+            </li>
+              :
+                <Dropdown>          
+                  <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
+                    <i className="far fa-user-circle" aria-hidden="true"></i>
+                    {/* Hi, {props.userReducer.user.user.email} */}
+                    Hi, {props.userReducer.user.profileObj}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>                    
+                    </Dropdown.Menu>
+                </Dropdown>
+              }
+
+
+              <header className="nav-bar">
           <ul className="nav-bar-items">
             <li>
               
                 <div className="nav-logo">
-                  {/* <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/sleeper-chair.png" /> */}
-                  <h1 className="logo">Instant Eats</h1>
+                  <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link>
                 </div>
               
             </li>
-            { ! props.userReducer.loggedIn ? 
-            <li>
-              <nav class="greeting-links">
-                <Link to="/signup" className="form-button-signup nav-button">Sign up</Link>
-                <Button className="form-button-signin nav-button" variant="primary" onClick={handleShow}>
-                  
-              </Button>
-              </nav>
-            </li>
-              :
-                  <Dropdown>          
-                    <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
-                      <i className="far fa-user-circle" aria-hidden="true"></i>
-                      Hi, {props.userReducer.user.profileObj}
-                    </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-              }
+            
           </ul>
         </header>
