@@ -31,16 +31,18 @@ const Navbar = (props) => {
         <div className="hero">
           <div className="header">
 
-            <div className="nav-logo">
-              {/* <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link> */}
-            </div>
+              <Link to="/">
+                <h1 className="nav-logo">
+                  <i class="fas fa-utensils"></i>  Instant Eats
+                </h1>
+              </Link>
 
             { ! props.userReducer.loggedIn ? 
               <div>
-                {/* <nav className="greeting-links">
+                <nav>
                   <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
                   <span className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</span>
-                </nav> */}
+                </nav>
 
                 <Modal show={showSignup} onHide={handleSignupClose}>
                   <Modal.Header closeButton>
@@ -72,10 +74,9 @@ const Navbar = (props) => {
                   </Modal.Body>
                 </Modal>               
               </div>
-              :
-              
-              <Dropdown>          
-                <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
+              :            
+              <Dropdown>
+                <Dropdown.Toggle size="sm" variant="info" id="dropdown-custom-2" >
                   <i className="far fa-user-circle" aria-hidden="true"></i>
                   {/* Hi, {props.userReducer.user.user.email} */}
                   Hi, {props.userReducer.user.profileObj}
@@ -83,7 +84,6 @@ const Navbar = (props) => {
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>                    
                 </Dropdown.Menu>

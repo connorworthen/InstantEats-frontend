@@ -1,7 +1,7 @@
 .hero {
     background: url("./backgroundImage.jpg") center/cover no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 85vh;
 }
 
 .header {
@@ -9,26 +9,9 @@
     background-color: rgba(0, 0, 0, .2);
 }
 
-.nav-logo {
-    display: flex;
-    align-items:stretch;
-    text-align: center;
-    padding: 10px 5px 10px 25px;
+h1.nav-logo {
+    color: white;
 }
-
-
-.nav-bar{
-    background-color: transparent;
-}
-
-
-/* nav.greeting-links {
-    display: flex;
-    box-sizing: border-box;
-    height: 100%;
-    width: 200px;
-    margin-right: 25px;
-} */
 
 
 .form-button-signup {
@@ -38,10 +21,11 @@
     right: 0%;
     font-size: 20px;
     cursor: pointer;
-    height: 55px;
-    width: 80px;
+    height: 52px;
+    width: 85px;
     text-align: center;
-    line-height: 275%;
+    line-height: 300%;
+    top: 1.5%;
 }
 
 .form-button-signin {
@@ -54,6 +38,7 @@
     right: 7%;
     width: 80px;
     height: 80px;
+    top: 0%;
 }
 
 
@@ -69,10 +54,4 @@
     text-align: center;
     font-size: 1rem;
     font-style: italic;
-}
-
-.auth-skip {
-    width:500px;
-    margin: 0 auto;
-    text-align: left;
 }
