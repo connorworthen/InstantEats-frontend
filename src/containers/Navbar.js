@@ -10,6 +10,7 @@ import { Dropdown, Button, Modal } from 'react-bootstrap'
 import UserSignup from '../components/UserSignup'
 import AuthLogin from '../components/AuthLogin'
 import '../index.css'
+import Search from './Search'
 
 const Navbar = (props) => {
 
@@ -27,62 +28,71 @@ const Navbar = (props) => {
   const handleSignupClose = () => setShowSignup(false);
   const handleSignupShow = () => setShowSignup(true);
 
-    return (     
+    return (  
         <div className="hero">
           <div className="header">
-{/* 
-            <div className="nav-logo"> */}
+
+            <div className="nav-logo">
               <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link>
-            {/* </div> */}
+            </div>
 
             { ! props.userReducer.loggedIn ? 
+              <div>
+                <nav className="greeting-links">
+                  <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
+                  <span className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</span>
+                </nav>
 
-            <div>
-{/*                 
-              <nav>
-                <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
-                <span className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</span>
-              </nav> */}
+                <Modal show={showSignup} onHide={handleSignupClose}>
+                  <Modal.Header closeButton>
+                    <h1 className="header-type">Sign Up</h1>
+                  </Modal.Header>
 
-              <Modal show={showSignup} onHide={handleSignupClose}>
-                <Modal.Header closeButton>
-                  <h1 className="header-type">Sign Up</h1>
-                </Modal.Header>
-                <Modal.Body>
-                  <h6 className="header-link">Already have an account?  <Link to="/login" className="color-link">Sign In</Link></h6><br></br>
-                  <AuthLogin />
-                </Modal.Body>
-                <Modal.Body><UserSignup /></Modal.Body>
-              </Modal>
+                  <Modal.Body>
+                    <h6 className="header-link">Already have an account?  <Link to="/login" className="color-link">Sign In</Link></h6><br></br>
+                    <AuthLogin />
+                  </Modal.Body>
 
-              <Modal show={showLogin} onHide={handleLoginClose}>
-                <Modal.Header closeButton>
-                  <h1 className="header-type">Login Form</h1>
-                </Modal.Header>
-                <Modal.Body>
-                  <h6 className="header-link">New to Instant Eats?  <Link to="/signup" className="color-link">Create Account</Link></h6><br></br>
-                  <AuthLogin />
-                </Modal.Body>
-                <Modal.Body><UserSignin /></Modal.Body>
-              </Modal>
+                  <Modal.Body>
+                    <UserSignup />
+                  </Modal.Body>
+                </Modal>
+
+                <Modal show={showLogin} onHide={handleLoginClose}>
+                  <Modal.Header closeButton>
+                    <h1 className="header-type">Login Form</h1>
+                  </Modal.Header>
+                  
+                  <Modal.Body>
+                    <h6 className="header-link">New to Instant Eats?  <Link to="/signup" className="color-link">Create Account</Link></h6><br></br>
+                    <AuthLogin />
+                  </Modal.Body>
+
+                  <Modal.Body>
+                    <UserSignin />
+                  </Modal.Body>
+                </Modal>               
               </div>
               :
-                <Dropdown>          
-                  <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
-                    <i className="far fa-user-circle" aria-hidden="true"></i>
-                    {/* Hi, {props.userReducer.user.user.email} */}
-                    Hi, {props.userReducer.user.profileObj}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>                    
-                    </Dropdown.Menu>
-                </Dropdown>
-              }
+              
+              <Dropdown>          
+                <Dropdown.Toggle variant="danger" size="sm" id="dropdown-basic">
+                  <i className="far fa-user-circle" aria-hidden="true"></i>
+                  {/* Hi, {props.userReducer.user.user.email} */}
+                  Hi, {props.userReducer.user.profileObj}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>                    
+                </Dropdown.Menu>
+              </Dropdown>
+            }             
           </div>
-        </div>
+        {/* <Search /> */}
+      </div> 
     )
   }
 
