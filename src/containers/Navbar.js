@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {logUserOut} from '../actions/userActions'
-// import {Link} from 'react-router-dom'
 import UserSignin from '../components/UserSignin'
 import { Dropdown, Button, Modal } from 'react-bootstrap'
-// import '../nav.css'
+import '../nav.css'
 // import '../signedin_nav.css'
 import UserSignup from '../components/UserSignup'
 import AuthLogin from '../components/AuthLogin'
-import '../index.css'
-import Search from './Search'
+// import '../index.css'
+// import Search from './Search'
 
 const Navbar = (props) => {
 
@@ -33,15 +32,15 @@ const Navbar = (props) => {
           <div className="header">
 
             <div className="nav-logo">
-              <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link>
+              {/* <Link to="/"><h1 className="logo"><i class="fas fa-utensils"></i>  Instant Eats</h1></Link> */}
             </div>
 
             { ! props.userReducer.loggedIn ? 
               <div>
-                <nav className="greeting-links">
+                {/* <nav className="greeting-links">
                   <span className="form-button-signin" variant="primary" onClick={handleLoginShow}>Sign In</span>
                   <span className="form-button-signup" variant="primary" onClick={handleSignupShow}>Sign Up</span>
-                </nav>
+                </nav> */}
 
                 <Modal show={showSignup} onHide={handleSignupClose}>
                   <Modal.Header closeButton>

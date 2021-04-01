@@ -136,20 +136,6 @@ body {
   color: #777;
 }
 
-.hero {
-  background: url("./backgroundImage.jpg") center/cover no-repeat;
-  background-size: cover;
-  height: 100vh;
-  background-position: left;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-}
-
-.header {
-  width: 300%;
-  background-color: rgba(0, 0, 0, .2);
-}
 
 .header-li {
   text-align: center;
