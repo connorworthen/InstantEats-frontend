@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {logUserOut} from '../actions/userActions'
+import {Dropdown, Modal} from 'react-bootstrap'
 import UserSignin from '../components/UserSignin'
-import { Dropdown, Button, Modal } from 'react-bootstrap'
-import '../nav.css'
-// import '../signedin_nav.css'
 import UserSignup from '../components/UserSignup'
 import AuthLogin from '../components/AuthLogin'
-// import '../index.css'
-// import Search from './Search'
+import Search from './Search'
+import '../navbar.css'
 
 const Navbar = (props) => {
 
@@ -90,7 +88,7 @@ const Navbar = (props) => {
               </Dropdown>
             }             
           </div>
-        {/* <Search /> */}
+        <Search />
       </div> 
     )
   }

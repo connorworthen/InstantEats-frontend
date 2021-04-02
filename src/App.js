@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {autoLogin} from './actions/userActions'
 import RestaurantsContainer from './containers/RestaurantsContainer'
 import Nav from "./containers/Navbar";
-import Search from './containers/Search'
+// import Search from './containers/Search'
 import {Route} from 'react-router-dom'
 import Checkout from './components/Checkout'
 import UserSignin from './components/UserSignin'

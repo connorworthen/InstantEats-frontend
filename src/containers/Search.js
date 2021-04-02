@@ -1,65 +1,47 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {fetchRestaurants} from '../actions/restaurantAction'
-import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
-import '../index.css'
+import '../search.css'
 
-class Search extends React.Component {
+const Search = (props) => {
 
-  state = {
-    address: ''
+  const [address, setAddress] = useState("")
+
+
+  const handleSubmit = (e) => {
+    props.fetchRestaurants(address)
+    e.preventDefault()
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  handleClick = (event) => {
-    event.preventDefault()
-    this.props.fetchRestaurants(this.state)
-    this.setState({
-      address: ''
-    })
-    this.props.history.push('/restaurants')
-  }
-
-  render() {
-      return (
-      <div>
-        <div className="home-page">
+  return (
+      <div className="home-page">
         <header className="cover">
           <div className="cover-wrapper">
             <div className="cover-content">
               <h3 className="search-title">Every Restaurant at your fingertips</h3>
             </div>
-            <form className="search-form-container" _lpchecked="1">
+
+            <form className="search-form-container" onSubmit={e => { handleSubmit(e) }}> 
               <div className="search-field">
-                <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" className="react-autosuggest__container">
-                <input
-                autocomplete="off" 
-                aria-autocomplete="list" 
-                aria-controls="react-autowhatever-1" 
-                className="search-input" 
-                type="text" 
-                placeholder="Address"
-                name="address" 
-                value={this.state.address} 
-                onChange={this.handleChange}
+                  <input
+                  autocomplete="off"
+                  className="search-input" 
+                  type="text" 
+                  placeholder="Enter Address Here"
+                  name="address" 
+                  value={address} 
+                  onChange={e => setAddress(e.target.value)} 
                 />
-                </div>
-              </div>
-              <div>
-                <input type="submit" className="search-submit-button" placeholder="Find Local Restaurants" onClick={this.handleClick} />
+
+                <button type="submit" className="search-submit-button">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
               </div>
             </form>
-            </div>
+          </div>
         </header>
       </div>
-  </div>
     )
-  }
 }
 
-export default withRouter(connect(null, {fetchRestaurants})(Search))
+export default connect(null, {fetchRestaurants})(Search)

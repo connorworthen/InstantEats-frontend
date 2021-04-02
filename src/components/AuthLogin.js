@@ -7,7 +7,7 @@ import GoogleLogin from 'react-google-login';
 import {googleAuth} from '../actions/oauthActions'
 import {facebookAuth} from '../actions/oauthActions'
 // import GoogleButton from 'react-google-button'
-import '../nav.css'
+import '../navbar.css'
 
 const AuthLogin  = (props) => {
 

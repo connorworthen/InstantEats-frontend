@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {signupUser} from '../actions/userActions'
 import {Form} from 'react-bootstrap'
-import '../nav.css'
+import '../navbar.css'
 
 const UserSignup = (props) => {
   
